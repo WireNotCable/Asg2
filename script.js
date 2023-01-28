@@ -1,13 +1,16 @@
-// Create a map object
-var map = new Microsoft.Maps.Map('#map', {
-    center: new Microsoft.Maps.Location(37.7749, -122.4194), // set the center of the map
-    zoom: 8
+var searchForm = document.querySelector(".search-form");
+document.querySelector('#search-btn').addEventListener("click", function(){
+    searchForm.classList.toggle('active');
+    navbar.classList.remove('active');
 });
 
-// Create a marker object
-var marker = new Microsoft.Maps.Pushpin(map.getCenter(), {
-    title: 'My Marker'
+var navbar = document.querySelector('.navbar');
+document.querySelector('#menu-btn').addEventListener("click", function(){
+    navbar.classList.toggle('active');
+    searchForm.classList.toggle('active');
 });
 
-// Add the marker to the map
-map.entities.push(marker);
+window.onscroll = function() {
+    searchForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
