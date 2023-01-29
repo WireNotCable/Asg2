@@ -173,3 +173,9 @@ section .container.active .signinBx .imgBx
 {
     top:-100%;
 }
+
+.error{
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+}

@@ -4,6 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Login</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -15,7 +16,7 @@
     <section>
         <div class="container">
             <div class="user signinBx">
-                <div class="imgBx"><img src="login-image1.png"></div>
+                <div class="imgBx"><img src="images/login-image1.png"></div>
                 <div class="formBx">
                     <form>
                         <h2>Sign In</h2>
@@ -29,21 +30,28 @@
 
             <div class="user signupBx">
                 <div class="formBx">
-                    <form>
+                    <form id="signupForm">
                         <h2>Create an account</h2>
-                        <input type="text" placeholder="Username">
-                        <input type="text" placeholder="Email Address">
-                        <input type="password" placeholder="Create Password">
-                        <input type="password" placeholder="Confirm Password">
-                        <input type="submit" value="Sign Up">
+                        <input type="text" id="signup-username" placeholder="Username" required>
+                        <div class="error"></div>
+                        <input type="text" id="signup-email" placeholder="Email Address" required>
+                        <div class="error"></div>
+                        <input type="password" id="signup-password" placeholder="Create Password" required>
+                        <div class="error"></div>
+                        <input type="password2" placeholder="Confirm Password" required>
+                        <div class="error"></div>
+                        <input id="signup-btn" type="submit" value="Sign Up">
                         <p class="signup">Already have an account? <a href="#" onclick="toggleForm();">Sign in.</a></p>
                     </form>
                 </div>
-                <div class="imgBx"><img src="login-image2"></div>
+                <div class="imgBx"><img src="images/login-image2.png"></div>
             </div>
         </div>
     </section>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
     <script src="login.js"></script>
 </body>
 
