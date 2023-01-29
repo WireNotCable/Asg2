@@ -58,7 +58,7 @@ body{
 .header .navbar a:hover{
     color:green;
 }
-.header .icons div{
+.header .icons div {
     height: 4.5rem;
     width: 4.5rem;
     line-height: 4.5rem;
