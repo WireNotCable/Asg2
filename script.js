@@ -7,7 +7,7 @@ document.querySelector('#search-btn').addEventListener("click", function(){
 var navbar = document.querySelector('.navbar');
 document.querySelector('#menu-btn').addEventListener("click", function(){
     navbar.classList.toggle('active');
-    searchForm.classList.toggle('active');
+    searchForm.classList.remove('active');
 });
 
 window.onscroll = function() {
