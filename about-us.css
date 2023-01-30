@@ -40,3 +40,26 @@ footer{
         max-width: 400px;
     }
 }
+
+.contact .icons-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+    gap:1.5rem;
+}
+.contact .icons-container .icons{
+    text-align: center;
+    border: 0.1rem solid rgba(0,0,0,0.1);
+}
+.icons i{
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    font-size: 2.5rem;
+    background: green;
+    color: white;
+    border-radius: 50%;
+}
+.icons h3{
+    color:black;
+    
+}
