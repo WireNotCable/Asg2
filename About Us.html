@@ -4,9 +4,10 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Locate Us</title>
+    <title>About Us</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="maps.js"></script>
+    <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
     <script src='http://www.bing.com/api/maps/mapcontrol?callback=getMap' async></script>
     <link rel='stylesheet' type='text/css' media='screen' href='about-us.css'>
     <link rel="stylesheet" href="style.css">
@@ -15,7 +16,7 @@
 
 <body>
     <header class="header">
-        <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
+        <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
         <nav class="navbar">
             <a href="">Products</a>
             <a href="">Categories</a>
@@ -36,17 +37,57 @@
         </form>
     </header>
     <div class="heading">
-        <h1>contact us</h1>
-        <p> <a href="index.html">home >></a> contact </p>
+        <h1>about us</h1>
+        <p> <a href="home.html">home >></a> about </p>
     </div>
-    <main>
+    <section class="contact">
 
-        <div id="map"></div>
+        <div class="icons-container">
 
-    </main>
+            <div class="icons">
+                <i class="fas fa-phone"></i>
+                <h3>our number</h3>
+                <p>+65 9812 9900</p>
+                <p>+65 9002 1459</p>
+            </div>
 
-    <footer>
-    </footer>
+            <div class="icons">
+                <i class="fas fa-envelope"></i>
+                <h3>our email</h3>
+                <p>S10243745@connect.np.edu.sg</p>
+                <p>S10242576@connect.np.edu.sg</p>
+            </div>
+
+            <div class="icons">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>our address</h3>
+                <p>jurong - 400104</p>
+            </div>
+
+        </div>
+
+        <main>
+            <h3>Locate Us</h3>
+            <div id="map"></div>
+
+        </main>
+        <div class="row">
+            <form action="">
+                <h3>get in touch</h3>
+                <div class="inputBox">
+                    <input type="text" placeholder="enter your name" class="box">
+                    <input type="email" placeholder="enter your email" class="box">
+                </div>
+                <div class="inputBox">
+                    <input type="number" placeholder="enter your number" class="box">
+                    <input type="text" placeholder="enter your subject" class="box">
+                </div>
+                <textarea placeholder="your message" cols="30" rows="10"></textarea>
+                <input type="submit" value="send message" class="contact-submit-btn">
+
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
