@@ -20,9 +20,9 @@
                 <div class="formBx">
                     <form>
                         <h2>Sign In</h2>
-                        <input type="text" placeholder="Username">
-                        <input type="password" placeholder="Password">
-                        <input type="submit" value="login">
+                        <input id="login-username" type="text" placeholder="Username">
+                        <input id="login-password" type="password" placeholder="Password">
+                        <input id="login-btn" type="submit" value="login">
                         <p class="signup">don't have an account? <a href="#" onclick="toggleForm();">Sign up.</a></p>
                     </form>
                 </div>
@@ -33,13 +33,9 @@
                     <form id="signupForm">
                         <h2>Create an account</h2>
                         <input type="text" id="signup-username" placeholder="Username" required>
-                        <div class="error"></div>
                         <input type="text" id="signup-email" placeholder="Email Address" required>
-                        <div class="error"></div>
                         <input type="password" id="signup-password" placeholder="Create Password" required>
-                        <div class="error"></div>
                         <input type="password2" placeholder="Confirm Password" required>
-                        <div class="error"></div>
                         <input id="signup-btn" type="submit" value="Sign Up">
                         <p class="signup">Already have an account? <a href="#" onclick="toggleForm();">Sign in.</a></p>
                     </form>

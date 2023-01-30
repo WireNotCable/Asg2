@@ -9,17 +9,38 @@
     <script src="maps.js"></script>
     <script src='http://www.bing.com/api/maps/mapcontrol?callback=getMap' async></script>
     <link rel='stylesheet' type='text/css' media='screen' href='about-us.css'>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>About Us</h1>
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
+        <nav class="navbar">
+            <a href="">Products</a>
+            <a href="">Categories</a>
+            <a href="About Us.html">About Us</a>
+            <a href="game.html">Game & Rewards</a>
+        </nav>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <a href="login.html">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
     </header>
     <main>
 
         <div id="map"></div>
 
     </main>
+
     <footer>
     </footer>
 </body>
