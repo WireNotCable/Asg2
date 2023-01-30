@@ -9,7 +9,6 @@ body{
 header{
     text-align: center;
     width: 100vw;
-    height: 8vh;
     background-color: rgb(19, 140, 41);
     color: #fff;
     padding-top: 10px;
@@ -19,13 +18,15 @@ main{
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 100vw;
-    height: 84vh;
+    /* width: 100vw;
+    height: 84vh; */
+    width: 80vw;
+    height: 80vh;
+    margin: 3% 5% 0 5%;
 }
 #map{
     width: 80vw;
     height: 80vh;
-    margin: 10px;
     background: #555;
 }
 footer{
@@ -40,7 +41,12 @@ footer{
         max-width: 400px;
     }
 }
-
+.contact{
+    margin: 100px 5% 0 5%;
+}
+.contact .icons{
+    padding: 5% 0 5% 0;
+}
 .contact .icons-container{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
@@ -49,6 +55,34 @@ footer{
 .contact .icons-container .icons{
     text-align: center;
     border: 0.1rem solid rgba(0,0,0,0.1);
+}
+.contact .icons-container .icons i {
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    font-size: 2.5rem;
+    background: #6dc34e;
+    color: #fff;
+    border-radius: 50%;
+}
+.contact .icons-container .icons i:hover {
+    height: 6rem;
+    width: 6rem;
+    line-height: 6rem;
+    font-size: 2.5rem;
+    background: green;
+    color: #fff;
+    border-radius: 50%;
+  }
+.contact .icons-container .icons h3 {
+    color: #222;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+.contact .icons-container .icons p {
+    color: #666;
+    font-size: 1.5rem;
+    line-height: 2;
 }
 .icons i{
     height: 6rem;
@@ -63,3 +97,79 @@ footer{
     color:black;
     
 }
+
+.contact .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+.contact .row form {
+padding: 2rem;
+border: 0.1rem solid rgba(0, 0, 0, 0.1);
+-webkit-box-flex: 1;
+    -ms-flex: 1 1 40rem;
+        flex: 1 1 40rem;
+}
+
+.contact .row form h3 {
+font-size: 2.5rem;
+padding-bottom: 1rem;
+color: #222;
+}
+
+.contact .row form .inputBox {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+        justify-content: space-between;
+-ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.contact .row form .inputBox input {
+width: 49%;
+}
+.contact .row form .inputBox .box,
+.contact .row form textarea {
+padding: 1rem 1.2rem;
+font-size: 1.6rem;
+border: 0.1rem solid rgba(0, 0, 0, 0.1);
+color: #222;
+text-transform: none;
+margin: .7rem 0;
+}
+.contact .row form textarea {
+width: 100%;
+height: 15rem;
+resize: none;
+}
+.contact-submit-btn{
+    width:50%;
+    color: white;
+    background-color: #6dc34e;
+    padding: 1% 2%;
+    border-radius: 25px;
+    text-align: center;
+    border: none;
+    margin-top: 3%;
+    margin-left: 25%;
+}
+.contact-submit-btn:hover{
+    width:80%;
+    color: white;
+    background-color: green;
+    padding: 1% 2%;
+    border-radius: 25px;
+    text-align: center;
+    border: none;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
