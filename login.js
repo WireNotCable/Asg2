@@ -9,9 +9,9 @@ $(document).ready(function(){
     
     // Submit sign up form
     $("#signup-btn").on("click", function(e){
-        //e.preventDefault(); //dont submit first
+        e.preventDefault(); //dont submit first
 
-        //get data and POST
+        //get data and POST request
         var Username = $("#signup-username").val();
         var Email = $("#signup-email").val();   
         var Password = $("#signup-password").val();
@@ -37,8 +37,51 @@ $(document).ready(function(){
     
         $.ajax(settings).done(function (response) {
         alert("Registration successful.");
-        console.log(response);
         });
     })
     
+    // Submit log in form
+    $("#login-btn").on("click", function(e){
+        e.preventDefault();
+        
+        var responseList = [];
+
+        // GET request
+        var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://idasg2-ba66.restdb.io/rest/signup",
+            "method": "GET",
+            "headers": {
+              "content-type": "application/json",
+              "x-apikey": APIKEY,
+              "cache-control": "no-cache"
+            }
+          }
+          
+          $.ajax(settings).done(function (response) {
+            for (var i=0; i < response.length; i++){
+              responseList.push(new User(response[i].username, response[i].password));
+            }
+
+            // get value
+            var Username = $("#login-username").val();
+            var Password = $("#login-password").val();  
+
+            // loop and find if username and password match with any data in the database
+            for (var i=0; i < responseList.length; i++){
+
+              if(responseList[i].username == Username && responseList[i].password == Password){
+                alert("Login successful.");
+                window.location.assign("index.html"); //auto go back to home page
+              }
+            }
+          });
+          
+          // create user object with username and password to store and responseList
+          function User(username, password){
+            this.username = username;
+            this.password = password;
+          }
+    })
 });
