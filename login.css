@@ -180,3 +180,16 @@ section .container.active .signinBx .imgBx
     font-size: 9px;
     height: 13px;
 }
+
+@media (max-width: 991px)
+{
+    section .container{
+        max-width: 400px;
+    }
+    section .container .imgBx{
+        display: none;
+    }
+    section .container .user .formBx{
+        width: 100%;
+    }
+}
