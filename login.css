@@ -192,4 +192,7 @@ section .container.active .signinBx .imgBx
     section .container .user .formBx{
         width: 100%;
     }
+    section .container.container.active .signinBx .formBx{
+        top: -100%;
+    }
 }

@@ -65,10 +65,14 @@ body{
     padding: 1rem 0;
     border-bottom: 1px solid #ddd;
 }
+.brand-and-icon a{
+    color: green;
+}
 .navbar-brand{
     font-size: 1.8rem;
     letter-spacing: 3px;
     font-weight: 700;
+    color: green;
 }
 .navbar-toggler{
     display: block;
