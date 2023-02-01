@@ -35,11 +35,12 @@ body{
     justify-content: space-between;
     background: #fff;
     box-shadow: var(--box-shadow);
+    
 }
-.main-wrapper img{
+/* .main-wrapper img{
     width: 100%;
     display: block;
-}
+} */
 .main-wrapper a{
     color: #000;
     text-decoration: none;
@@ -61,19 +62,17 @@ body{
 }
 .brand-and-icon{
     display: flex;
-    justify-content: space-between;
     padding: 1rem 0;
+    justify-content: space-between;
     border-bottom: 1px solid #ddd;
 }
 .brand-and-icon a{
     color: green;
 }
-.brand-and-icon{
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
+.icons{
+  justify-content: space-evenly;
 }
+
 .navbar-brand{
     font-size: 1.8rem;
     letter-spacing: 3px;
@@ -100,7 +99,7 @@ body{
 }
 .navbar-nav > li > a{
     text-transform: uppercase;
-    font-size: 1.1rem;
+    font-size: 2rem;
     font-weight: 700;
     display: block;
     padding: 0.6rem 0;
