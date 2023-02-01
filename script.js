@@ -14,47 +14,57 @@ $(document).ready(function(){
         temp = setTimeout(resizeEnd, 100);
         resetMenu();
     });
-});
 
 
-const subMenus = $('.sub-menu');
-const menuLinks = $('.menu-link');
+    const subMenus = $('.sub-menu');
+    const menuLinks = $('.menu-link');
 
-function smallScreenMenu(){
-    if($(window).innerWidth() <= 992){
-        menuLinks.each(function(item){
-            $(this).click(function(){
-                $(this).next().slideToggle();
+    function smallScreenMenu(){
+        if($(window).innerWidth() <= 992){
+            menuLinks.each(function(item){
+                $(this).click(function(){
+                    $(this).next().slideToggle();
+                });
             });
-        });
-    } else {
-        menuLinks.each(function(item){
-            $(this).off('click');
-        });
+        } else {
+            menuLinks.each(function(item){
+                $(this).off('click');
+            });
+        }
     }
-}
 
-function resetMenu(){
+    function resetMenu(){
     if($(window).innerWidth() > 992){
         subMenus.each(function(item){
             $(this).css('display', 'none');
         });
     }
-}
+
+    let slides = document.querySelectorAll('.home .slides-container .slide');
+    let index = 0;
+    
+    function next(){
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }
+    
+    function prev(){
+        slides[index].classList.remove('active');
+        index = (index - 1 + slides.length) % slides.length;
+        slides[index].classList.add('active');
+    }
+
+
+    //check which subcat is pressed and store it in local storage
+
+
+}});
+    
 
 
 
-let slides = document.querySelectorAll('.home .slides-container .slide');
-let index = 0;
 
-function next(){
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-}
 
-function prev(){
-    slides[index].classList.remove('active');
-    index = (index - 1 + slides.length) % slides.length;
-    slides[index].classList.add('active');
-}
+
+
