@@ -5,6 +5,8 @@ html{
     background: -webkit-radial-gradient(circle, #fff, #ccc);   
     background: -o-radial-gradient(circle, #fff, #ccc);   
     background: -moz-radial-gradient(circle, #fff, #ccc);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 #container{
