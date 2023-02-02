@@ -216,43 +216,88 @@ body{
     position: relative;
   }
 
-.home .swiper-container .swiper-wrapper{
-  overflow: hidden;
-}
-
-.home .swiper-container .swiper-wrapper .swiper-slide {
-  width: calc(100% - 40px);
-  margin: 0 500px;
-  position: relative;
-  text-align: center;
-    
-}
-
-/* Fresh And Organic */
-.home .swiper-container .swiper-wrapper .swiper-slide .content span {
-color: #666;
-font-size: 2.5rem;
-}
-
-/* Up to 50% off */
-.home .swiper-container .swiper-wrapper .swiper-slide .content h3 {
-font-size: 6rem;
-color: #222;
-padding: 1rem 0;
-}
-
-.home .swiper-container .swiper-wrapper .swiper-slide .image {
--webkit-box-flex: 1;
-    -ms-flex: 1 1 40rem;
-        flex: 1 1 40rem;
-margin: 3rem 0;
-}
-
-.home .swiper-container .swiper-wrapper .swiper-slide .image img {
-width: 100%;
--webkit-animation: fadeUp .4s linear;
-        animation: fadeUp .4s linear;
-}
+.home .slides-container .slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 1.5rem;
+    display: none;
+  }
+  
+  .home .slides-container .slide.active {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .home .slides-container .slide .content {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40rem;
+            flex: 1 1 40rem;
+    -webkit-animation: fadeLeft .4s linear .4s backwards;
+            animation: fadeLeft .4s linear .4s backwards;
+  }
+  
+  .home .slides-container .slide .content span {
+    color: #666;
+    font-size: 2.5rem;
+  }
+  
+  .home .slides-container .slide .content h3 {
+    font-size: 6rem;
+    color: #222;
+    padding: .5rem 0;
+  }
+  
+  .home .slides-container .slide .image {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 40rem;
+            flex: 1 1 40rem;
+    margin: 3rem 0;
+  }
+  
+  .home .slides-container .slide .image img {
+    width: 100%;
+    -webkit-animation: fadeUp .4s linear;
+            animation: fadeUp .4s linear;
+  }
+  
+  .home #next-slide,
+  .home #prev-slide {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background: #fff;
+    font-size: 3rem;
+    color: #222;
+    cursor: pointer;
+  }
+  
+  .home #next-slide:hover,
+  .home #prev-slide:hover {
+    background: green;
+    color: #fff;
+  }
+  
+  .home #prev-slide {
+    left: 2rem;
+  }
+  
+  .home #next-slide {
+    right: 2rem;
+  }
 
 /* Banner-Container */
 
@@ -515,7 +560,7 @@ width: 100%;
     html{
         font-size: 50%;
     }
-    .home .swiper-container .swiper-wrapper .swiper-slide .content h3 {
+    .home .slides-container .slide .content h3 {
         font-size: 5rem;
       }
 }

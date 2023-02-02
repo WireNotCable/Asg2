@@ -8,14 +8,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
-    <script type='text/javascript'
-        src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AoikwZupOMBoYuMeQAhczv5lIbxfubsseUobK8QlRbAdl3LdX2ZrGd0gOm2AmFdN'
-        async defer></script>
-    <link rel="stylesheet" href="style.css">
+    <!-- <script src="script.js" defer></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" /> -->
 </head>
 
 <body>
@@ -49,44 +47,47 @@
 
     <!--slides-container start here-->
     <section class="home">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <!-- Slides goes here -->
-                <div class="swiper-slide">
-                    <div class="content">
-                        <span>fresh and organic</span>
-                        <h3>up to 50% off</h3>
-                        <a href="#" class="btn">shop now</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/home-img-1.png" alt="">
-                    </div>
-                </div>
-                
-                <div class="swiper-slide">
-                    <div class="content">
-                        <span>fresh and organic</span>
-                        <h3>up to 50% off</h3>
-                        <a href="#" class="btn">shop now</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/home-img-2.png" alt="">
-                    </div>
-                </div>
 
-                <div class="swiper-slide">
-                    <div class="content">
-                        <span>fresh and organic</span>
-                        <h3>up to 50% off</h3>
-                        <a href="#" class="btn">shop now</a>
-                    </div>
-                    <div class="image">
-                        <img src="images/home-img-3.png" alt="">
-                    </div>
-                </div>
+        <div class="slides-container">
 
+            <div class="slide active">
+                <div class="content">
+                    <span>fresh and organic</span>
+                    <h3>up to 50% off</h3>
+                    <a href="#" class="btn">shop now</a>
+                </div>
+                <div class="image">
+                    <img src="images/home-img-1.png" alt="">
+                </div>
             </div>
+
+            <div class="slide">
+                <div class="content">
+                    <span>fresh and organic</span>
+                    <h3>up to 50% off</h3>
+                    <a href="#" class="btn">shop now</a>
+                </div>
+                <div class="image">
+                    <img src="images/home-img-2.png" alt="">
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="content">
+                    <span>fresh and organic</span>
+                    <h3>up to 50% off</h3>
+                    <a href="#" class="btn">shop now</a>
+                </div>
+                <div class="image">
+                    <img src="images/home-img-3.png" alt="">
+                </div>
+            </div>
+
         </div>
+
+        <div id="next-slide" class="fas fa-angle-right" onclick="next()"></div>
+        <div id="prev-slide" class="fas fa-angle-left" onclick="next()"></div>
+
     </section>
     <!--slides-container ends here-->
 
