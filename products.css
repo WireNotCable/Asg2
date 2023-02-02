@@ -217,7 +217,7 @@ body{
     gap: 1rem;
   }
   
-  .products .box-container .box .icons a {
+  .products .box-container .box .icons button {
     font-size: 2rem;
     height: 5rem;
     width: 5rem;
@@ -228,7 +228,7 @@ body{
     color: #666;
   }
   
-  .products .box-container .box .icons a:hover {
+  .products .box-container .box .icons button:hover {
     background: green;
     color: #fff;
   }
