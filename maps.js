@@ -2,7 +2,7 @@ let map, searchManager;
 
 function getMap(){
     map = new Microsoft.Maps.Map('#map', {
-    credentials: 'AjWXG6jbiO7ACveVM5dB5CgfG6TLvWbxIDu9fX7zYwZxwMcCgOqfM91-hnq4_Oix',
+    credentials: 'AoikwZupOMBoYuMeQAhczv5lIbxfubsseUobK8QlRbAdl3LdX2ZrGd0gOm2AmFdN',
     });
 
     var location_1 = new Microsoft.Maps.Location(1.3295141648280284, 103.67755912597347)
