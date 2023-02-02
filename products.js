@@ -15,12 +15,11 @@ $(document).ready(function(){
     let content = "";
     $.ajax(settings).done(function(response){
         for(var i=0; i < response.length; i++){
-            console.log(response[i].itemName)
             content = `<div class="box">
             <div class="icons">
-              <a href="#" class="fas fa-shopping-cart"></a>
-              <a href="#" class="fas fa-heart"></a>
-              <a href="#" class="fas fa-eye"></a>
+              <button class="fas fa-shopping-cart"></button>
+              <button href="#" class="fas fa-heart"></button>
+              <button href="#" class="fas fa-eye"></button>
             </div>
             <div class="image">
               <img src=${response[i].imageName}" alt="">
@@ -41,5 +40,15 @@ $(document).ready(function(){
         }
         
     })
+
+
+
+
+    // event listener for add to cart
+    var addToCartButtons = document.querySelectorAll(".add-to-cart-btn")
+    for (var i = 0; i < addToCartButtons.length; i++){
+      var button = addToCartButtons[i]
+      button.addEventListener('click',addToCartClicked)
+    }
     
 });

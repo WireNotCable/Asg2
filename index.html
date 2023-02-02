@@ -14,75 +14,30 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" /> -->
-
 </head>
 
 <body>
 
-    <div class="main-wrapper">
+    <header class="header">
+        <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
         <nav class="navbar">
-
-            <div class="brand-and-icon">
-                <a href="index.html" class="navbar-brand"><i class="fas fa-shopping-basket">Groce</i></a>
-                <button type="button" class="navbar-toggler">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-
-            <div class="navbar-collapse">
-                <ul class="navbar-nav">
-
-                    <li>
-                        <a href="Products.html" class="menu-link">
-                            Products
-                            <span class="drop-icon">
-                                <i class="fas fa-chevron-down"></i>
-                            </span>
-                        </a>
-                        <div class="sub-menu">
-                            <!-- item -->
-                            <!-- <div class="sub-menu-item">
-                <h4>top categories</h4>
-                <ul>
-                  <li><a href="#">cell phones & accessories</a></li>
-                  <li><a href="#">smart tv</a></li>
-                  <li><a href="#">computer & laptops</a></li>
-                  <li><a href="#">digital cameras</a></li>
-                  <li><a href="#">video games & accessories</a></li>
-                </ul>
-              </div> -->
-                            <!-- end of item -->
-                            <!-- item -->
-                            <div class="sub-menu-item">
-                                <h4>Categories</h4>
-                                <ul>
-                                    <li><a href="#">Bakery</a></li>
-                                    <li><a href="#">Beauty & Personal Care</a></li>
-                                    <li><a href="#">Drinks</a></li>
-                                    <li><a href="#">Fruits & Vegetables</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li>
-                        <a href="game.html">Game & Rewards</a>
-                    </li>
-
-                    <li>
-                        <a href="About-us.html">About Us</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="brand-and-icon icons">
-                <div class="fas fa-shopping-cart" id="cart-btn"></div>
-                <a href="login.html">
-                    <div class="fas fa-user" id="login-btn"></div>
-                </a>
-            </div>
-
+            <a href="Products.html">Products</a>
+            <a href="About-Us.html">About Us</a>
+            <a href="game.html">Game & Rewards</a>
         </nav>
-    </div>
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <a href="login.html">
+                <div class="fas fa-user" id="login-btn"></div>
+            </a>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+    </header>
 
     <!--jQuery for burger dropdown when screen is small-->
     <!-- <script src="https://code.jquery.com/jquery-3.5.1.js"
