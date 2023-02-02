@@ -59,6 +59,26 @@ function prev(){
   slides[index].classList.add('active');
 }
 
+var swiper = new Swiper(".home-slider", {
+  loop: true,
+  centeredSlides: true,
+  autoplay: {
+    delay: 9500,
+    disableOnInteraction: false,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    450: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+  },
+});
+
 var mySwiper = new Swiper('.swiper-container', {
   loop: true,
   centeredSlides: true,
