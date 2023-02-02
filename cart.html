@@ -1,121 +1,270 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="cart.css">
-    <!-- Font awesome -->
-    <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous" /> -->
-    <title>Cart</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!--
+    - google font link
+  -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+    rel="stylesheet" />
 </head>
 
 <body>
-    <!-- Generated cart items -->
-    <div class="cart-items">
-    </div>
-    <hr>
-    <div class="cart-total">
-        <strong class="cart-total-title">Total : </strong>
-        <span class="cart-total-price">$0</span>
-    </div>
-    <main>
-        <div class="basket">
-            <div class="basket-module">
-            <label for="promo-code">Enter a promotional code</label>
-            <input id="promo-code" type="text" name="promo-code" maxlength="5" class="promo-code-field">
-            <button class="promo-code-cta">Apply</button>
-            </div>
-            <div class="basket-labels">
-            <ul>
-                <li class="item item-heading">Item</li>
-                <li class="price">Price</li>
-                <li class="quantity">Quantity</li>
-                <li class="subtotal">Subtotal</li>
-            </ul>
-            </div>
-            <div class="basket-product">
-            <div class="item">
-                <div class="product-image">
-                <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
-                </div>
-                <div class="product-details">
-                <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
-                <p><strong>Navy, Size 18</strong></p>
-                <p>Product Code - 232321939</p>
-                </div>
-            </div>
-            <div class="price">26.00</div>
-            <div class="quantity">
-                <input type="number" value="4" min="1" class="quantity-field">
-            </div>
-            <div class="subtotal">104.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
-            </div>
-            <div class="basket-product">
-            <div class="item">
-                <div class="product-image">
-                <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
-                </div>
-                <div class="product-details">
-                <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1>
-                <p><strong>Navy, Size 10</strong></p>
-                <p>Product Code - 232321939</p>
-                </div>
-            </div>
-            <div class="price">26.00</div>
-            <div class="quantity">
-                <input type="number" value="1" min="1" class="quantity-field">
-            </div>
-            <div class="subtotal">26.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
-            </div>
-        </div>
-        <aside>
-            <div class="summary">
-            <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
-            <div class="summary-subtotal">
-                <div class="subtotal-title">Subtotal</div>
-                <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
-                <div class="summary-promo hide">
-                <div class="promo-title">Promotion</div>
-                <div class="promo-value final-value" id="basket-promo"></div>
-                </div>
-            </div>
-            <div class="summary-delivery">
-                <select name="delivery-collection" class="summary-delivery-selection">
-                    <option value="0" selected="selected">Select Collection or Delivery</option>
-                <option value="collection">Collection</option>
-                <option value="first-class">Royal Mail 1st Class</option>
-                <option value="second-class">Royal Mail 2nd Class</option>
-                <option value="signed-for">Royal Mail Special Delivery</option>
-                </select>
-            </div>
-            <div class="summary-total">
-                <div class="total-title">Total</div>
-                <div class="total-value final-value" id="basket-total">130.00</div>
-            </div>
-            <div class="summary-checkout">
-                <button class="checkout-cta">Go to Secure Checkout</button>
-            </div>
-            </div>
-        </aside>
-    </main>
 
-    <script src="cart.js" defer></script>
-    <button class="checkout-btn">
-        <a href="checkout.html">CHECKOUT</a>
-    </button>
+
+  <!--
+    - main container
+  -->
+
+  <main class="container">
+
+    <h1 class="heading">
+      <ion-icon name="cart-outline"></ion-icon> Shopping Cart
+    </h1>
+
+    <div class="item-flex">
+
+      <!--
+       - checkout section
+      -->
+      <section class="checkout">
+
+        <h2 class="section-heading">Payment Details</h2>
+
+        <div class="payment-form">
+
+          <div class="payment-method">
+
+            <button class="method selected">
+              <ion-icon name="card"></ion-icon>
+
+              <span>Credit Card</span>
+
+              <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
+            </button>
+
+            <button class="method">
+              <ion-icon name="logo-paypal"></ion-icon>
+
+              <span>PayPal</span>
+
+              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <form action="#">
+
+            <div class="cardholder-name">
+              <label for="cardholder-name" class="label-default">Cardholder name</label>
+              <input type="text" name="cardholder-name" id="cardholder-name" class="input-default">
+            </div>
+
+            <div class="card-number">
+              <label for="card-number" class="label-default">Card number</label>
+              <input type="number" name="card-number" id="card-number" class="input-default">
+            </div>
+
+            <div class="input-flex">
+
+              <div class="expire-date">
+                <label for="expire-date" class="label-default">Expiration date</label>
+
+                <div class="input-flex">
+
+                  <input type="number" name="day" id="expire-date" placeholder="31" min="1" max="31"
+                    class="input-default">
+                  /
+                  <input type="number" name="month" id="expire-date" placeholder="12" min="1" max="12"
+                    class="input-default">
+
+                </div>
+              </div>
+
+              <div class="cvv">
+                <label for="cvv" class="label-default">CVV</label>
+                <input type="number" name="cvv" id="cvv" class="input-default">
+              </div>
+
+            </div>
+
+          </form>
+
+        </div>
+
+        <button class="btn btn-primary">
+          <b>Pay</b> $ <span id="payAmount">2.15</span>
+        </button>
+
+      </section>
+
+
+      <!--
+        - cart section
+      -->
+      <section class="cart">
+
+        <div class="cart-item-box">
+
+          <h2 class="section-heading">Order Summery</h2>
+
+          <div class="product-card">
+
+            <div class="card">
+
+              <div class="img-box">
+                <img src="./images/green-tomatoes.jpg" alt="Green tomatoes" width="80px" class="product-img">
+              </div>
+
+              <div class="detail">
+
+                <h4 class="product-name">Green Tomatoes 1 Kilo</h4>
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                    $ <span id="price">1.25</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <button class="product-close-btn">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+            </div>
+
+          </div>
+
+          <div class="product-card">
+
+            <div class="card">
+
+              <div class="img-box">
+                <img src="./images/cabbage.jpg" alt="Cabbage" width="80px" class="product-img">
+              </div>
+
+              <div class="detail">
+
+                <h4 class="product-name">Cabbage 1 Pcs</h4>
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                    $ <span id="price">0.80</span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <button class="product-close-btn">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="wrapper">
+
+          <div class="discount-token">
+
+            <label for="discount-token" class="label-default">Gift card/Discount code</label>
+
+            <div class="wrapper-flex">
+
+              <input type="text" name="discount-token" id="discount-token" class="input-default">
+
+              <button class="btn btn-outline">Apply</button>
+
+            </div>
+
+          </div>
+
+          <div class="amount">
+
+            <div class="subtotal">
+              <span>Subtotal</span> <span>$ <span id="subtotal">2.05</span></span>
+            </div>
+
+            <div class="tax">
+              <span>Tax</span> <span>$ <span id="tax">0.10</span></span>
+            </div>
+
+            <div class="shipping">
+              <span>Shipping</span> <span>$ <span id="shipping">0.00</span></span>
+            </div>
+
+            <div class="total">
+              <span>Total</span> <span>$ <span id="total">2.15</span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
 
 </html>
