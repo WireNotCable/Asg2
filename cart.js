@@ -19,38 +19,33 @@ $(document).ready(function(){
         creditCardCheckmark.classList.remove('fill')
     });
 
-    // get data from local storage
-    let itemsData = []
-    if (localStorage.getItem("itemsData") !== null) {
-      itemsData = JSON.parse(localStorage.getItem("itemsData"));
-    }
+    function getAndParseAllLocalStorage() {
+      let values = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let value = JSON.parse(localStorage.getItem(key));
+        values.push({ key, value });
 
-    // add selected items into cart page
-    for (let item of itemsData){
-      addItemToCart(item.title, item.price, item.imageSrc, item.quantity)
-
-      function addItemToCart(title, price, imageSrc, quantity){
-
-      var contents = `
-      <div class="product-card">
+        var contents = `
+        <div class="product-card">
             <div class="card">
               <div class="img-box">
-                <img src="${imageSrc}" alt="${title}" width="80px" class="product-img">
+                <img src="${value.imageSrc}" alt="${key}" width="80px" class="product-img">
               </div>
               <div class="detail">
-                <h4 class="product-name">${title}</h4>
+                <h4 class="product-name">${key}</h4>
                 <div class="wrapper">
                   <div class="product-qty">
                     <button id="decrement">
                       <ion-icon name="remove-outline"></ion-icon>
                     </button>
-                    <span id="quantity">${quantity}</span>
+                    <span id="quantity">${value.quantity}</span>
                     <button id="increment">
                       <ion-icon name="add-outline"></ion-icon>
                     </button>
                   </div>
                   <div class="price">
-                    $ <span id="price">${price}</span>
+                    $ <span id="price">${value.price}</span>
                   </div>
                 </div>
               </div>
@@ -59,42 +54,56 @@ $(document).ready(function(){
               </button>
             </div>
           </div>
-      `
-      
-      $(".cart-item-box").append(contents)
+        `
+        $(".cart-item-box").append(contents)
       }
     }
 
+    getAndParseAllLocalStorage()
+
+    
     var removeCartItemButtons = document.querySelectorAll(".product-close-btn")
     for (var i = 0; i<removeCartItemButtons.length; i++){
-      var button = removeCartItemButtons[i]
-      button.addEventListener('click', function(event){
-        var buttonClicked = event.target
-        buttonClicked.parentElement.parentElement.parentElement.remove()
-        updateStorage()
-      })
+      
     }
+      
+    }
+  )
+    
+
+    
+
+
+
+    // var removeCartItemButtons = document.querySelectorAll(".product-close-btn")
+    // for (var i = 0; i<removeCartItemButtons.length; i++){
+    //   var button = removeCartItemButtons[i]
+    //   button.addEventListener('click', function(event){
+    //     var buttonClicked = event.target
+    //     buttonClicked.parentElement.parentElement.parentElement.remove()
+    //     updateStorage()
+    //   })
+    // }
 
     // clear local storage and add existing items back
-    function updateStorage(){
-      localStorage.clear()
-      var items = document.querySelectorAll(".product-card")
-      let itemsData = []
-      for (var i = 0; i < items.length; i++){
-        var title = items[i].querySelector('.product-name').innerText
-        var price = items[i].querySelector('#price').innerText
-        var imageSrc = items[i].querySelector('img').src
-        var quantity = items[i].querySelector('#quantity').innerText
-        let newData = new Data(title, price, imageSrc, quantity)
-        itemsData.push(newData)
-      }
-      localStorage.setItem("itemsData", JSON.stringify(itemsData));
-    }
+    // function updateStorage(){
+    //   localStorage.clear()
+    //   var items = document.querySelectorAll(".product-card")
+    //   let itemsData = []
+    //   for (var i = 0; i < items.length; i++){
+    //     var title = items[i].querySelector('.product-name').innerText
+    //     var price = items[i].querySelector('#price').innerText
+    //     var imageSrc = items[i].querySelector('img').src
+    //     var quantity = items[i].querySelector('#quantity').innerText
+    //     let newData = new Data(title, price, imageSrc, quantity)
+    //     itemsData.push(newData)
+    //   }
+    //   localStorage.setItem("itemsData", JSON.stringify(itemsData));
+    // }
 
-    function Data(title, price, imageSrc, quantity) {
-      this.title = title;
-      this.price = price;
-      this.imageSrc = imageSrc;
-      this.quantity = quantity;
-    }
-})
+    // function Data(title, price, imageSrc, quantity) {
+    //   this.title = title;
+    //   this.price = price;
+    //   this.imageSrc = imageSrc;
+    //   this.quantity = quantity;
+    // }
