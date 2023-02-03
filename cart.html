@@ -10,6 +10,7 @@
   <!--
     - custom css link
   -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="cart.css">
 
   <!--
@@ -18,10 +19,34 @@
   <link
     href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
     rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
+  <!-- Navigation Bar -->
+  <header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
+    <nav class="navbar">
+      <a href="Products.html">Products</a>
+      <a href="About-Us.html">About Us</a>
+      <a href="game.html">Game & Rewards</a>
+    </nav>
+    <div class="icons">
+      <div class="fas fa-bars" id="menu-btn"></div>
+      <div class="fas fa-search" id="search-btn"></div>
+      <a href="cart.html">
+        <div class="fas fa-shopping-cart" id="cart-btn"></div>
+      </a>
+      <a href="login.html">
+        <div class="fas fa-user" id="login-btn"></div>
+      </a>
+    </div>
+    <form action="" class="search-form">
+      <input type="search" id="search-box" placeholder="search here...">
+      <label for="search-box" class="fas fa-search"></label>
+    </form>
+  </header>
 
   <!--
     - main container
@@ -46,7 +71,7 @@
 
           <div class="payment-method">
 
-            <button class="method selected">
+            <button class="method selected" id="creditcard">
               <ion-icon name="card"></ion-icon>
 
               <span>Credit Card</span>
@@ -54,12 +79,12 @@
               <ion-icon class="checkmark fill" name="checkmark-circle"></ion-icon>
             </button>
 
-            <button class="method">
+            <button class="method" id="paypal">
               <ion-icon name="logo-paypal"></ion-icon>
 
               <span>PayPal</span>
 
-              <ion-icon class="checkmark" name="checkmark-circle-outline"></ion-icon>
+              <ion-icon class="checkmark" name="checkmark-circle"></ion-icon>
             </button>
 
           </div>
@@ -119,129 +144,46 @@
 
           <h2 class="section-heading">Order Summery</h2>
 
-          <div class="product-card">
+          <!-- Cart items will be generated here -->
 
-            <div class="card">
 
-              <div class="img-box">
-                <img src="./images/green-tomatoes.jpg" alt="Green tomatoes" width="80px" class="product-img">
-              </div>
+          <div class="wrapper">
 
-              <div class="detail">
+            <div class="discount-token">
 
-                <h4 class="product-name">Green Tomatoes 1 Kilo</h4>
+              <label for="discount-token" class="label-default">Gift card/Discount code</label>
 
-                <div class="wrapper">
+              <div class="wrapper-flex">
 
-                  <div class="product-qty">
-                    <button id="decrement">
-                      <ion-icon name="remove-outline"></ion-icon>
-                    </button>
+                <input type="text" name="discount-token" id="discount-token" class="input-default">
 
-                    <span id="quantity">1</span>
-
-                    <button id="increment">
-                      <ion-icon name="add-outline"></ion-icon>
-                    </button>
-                  </div>
-
-                  <div class="price">
-                    $ <span id="price">1.25</span>
-                  </div>
-
-                </div>
+                <button class="btn btn-outline">Apply</button>
 
               </div>
 
-              <button class="product-close-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
+            </div>
+
+            <div class="amount">
+
+              <div class="subtotal">
+                <span>Subtotal</span> <span>$ <span id="subtotal">2.05</span></span>
+              </div>
+
+              <div class="tax">
+                <span>Tax</span> <span>$ <span id="tax">0.10</span></span>
+              </div>
+
+              <div class="shipping">
+                <span>Shipping</span> <span>$ <span id="shipping">0.00</span></span>
+              </div>
+
+              <div class="total">
+                <span>Total</span> <span>$ <span id="total">2.15</span></span>
+              </div>
 
             </div>
 
           </div>
-
-          <div class="product-card">
-
-            <div class="card">
-
-              <div class="img-box">
-                <img src="./images/cabbage.jpg" alt="Cabbage" width="80px" class="product-img">
-              </div>
-
-              <div class="detail">
-
-                <h4 class="product-name">Cabbage 1 Pcs</h4>
-
-                <div class="wrapper">
-
-                  <div class="product-qty">
-                    <button id="decrement">
-                      <ion-icon name="remove-outline"></ion-icon>
-                    </button>
-
-                    <span id="quantity">1</span>
-
-                    <button id="increment">
-                      <ion-icon name="add-outline"></ion-icon>
-                    </button>
-                  </div>
-
-                  <div class="price">
-                    $ <span id="price">0.80</span>
-                  </div>
-
-                </div>
-
-              </div>
-
-              <button class="product-close-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="wrapper">
-
-          <div class="discount-token">
-
-            <label for="discount-token" class="label-default">Gift card/Discount code</label>
-
-            <div class="wrapper-flex">
-
-              <input type="text" name="discount-token" id="discount-token" class="input-default">
-
-              <button class="btn btn-outline">Apply</button>
-
-            </div>
-
-          </div>
-
-          <div class="amount">
-
-            <div class="subtotal">
-              <span>Subtotal</span> <span>$ <span id="subtotal">2.05</span></span>
-            </div>
-
-            <div class="tax">
-              <span>Tax</span> <span>$ <span id="tax">0.10</span></span>
-            </div>
-
-            <div class="shipping">
-              <span>Shipping</span> <span>$ <span id="shipping">0.00</span></span>
-            </div>
-
-            <div class="total">
-              <span>Total</span> <span>$ <span id="total">2.15</span></span>
-            </div>
-
-          </div>
-
-        </div>
 
       </section>
 
@@ -257,6 +199,10 @@
   <!--
     - custom js link
   -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
   <script src="cart.js"></script>
 
   <!--
