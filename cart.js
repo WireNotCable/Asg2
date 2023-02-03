@@ -98,17 +98,20 @@ $(document).ready(function(){
       var button = MinusQuantityButtons[i]
       button.addEventListener('click', function(event){
         var buttonClicked = event.target
-        quantity = buttonClicked.parentElement.nextElementSibling.innerHTML
-        buttonClicked.parentElement.nextElementSibling.innerHTML = parseInt(quantity) - 1
-        key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
-        let value = JSON.parse(localStorage.getItem(key));
-        value.quantity -= 1
-        if (value.quantity == 0 || parseInt(quantity)==0){
-          value.quantity = 1
-          buttonClicked.parentElement.nextElementSibling.innerHTML = 1
+        if (buttonClicked.parentElement.nextElementSibling.innerHTML != 0){
+          
+          quantity = buttonClicked.parentElement.nextElementSibling.innerHTML
+          buttonClicked.parentElement.nextElementSibling.innerHTML = parseInt(quantity) - 1
+          key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
+          let value = JSON.parse(localStorage.getItem(key));
+          value.quantity -= 1
+          if (value.quantity == 0 || parseInt(quantity)==0){
+            value.quantity = 1
+            buttonClicked.parentElement.nextElementSibling.innerHTML = 1
+          }
+          localStorage.setItem(key, JSON.stringify(value));
+          updateTotal()
         }
-        localStorage.setItem(key, JSON.stringify(value));
-        updateTotal()
       })
     }
 
