@@ -4,7 +4,7 @@ var score;
 var trialsLeft;
 var step;
 var action; //used for setInterval
-var fruits = ['apple','strawberry','soda','banana'];
+var fruits = ['apple', 'lemon', 'mango', 'peach'];
 $(function(){
     
 //click on start reset button
@@ -122,7 +122,7 @@ function startAction(){
 // generate a random fruit
 
 function chooseFruit(){
-    $("#fruit1").attr('src' , 'images/game_fruits/' + fruits[Math.round(2*Math.random())] +'.gif');   
+    $("#fruit1").attr('src' , 'images/game_fruits/' + fruits[Math.round(2*Math.random())] +'.png');   
 }
 
 //Stop dropping fruits

@@ -1,16 +1,12 @@
 /*styling.css*/
 html{
-    height: 100%;
-    background: radial-gradient(circle, #fff, #ccc);
-    background: -webkit-radial-gradient(circle, #fff, #ccc);   
-    background: -o-radial-gradient(circle, #fff, #ccc);   
-    background: -moz-radial-gradient(circle, #fff, #ccc);
+    height: 100%;;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
 
 #container{
-    height: 600px;
+    height: 500px;
     width: 100%;
     background-color: #9DD2EA;
     margin: 10px auto;
@@ -24,6 +20,7 @@ html{
 }
 
 #score{
+    position: absolute;
     background-color: #F1FF92;
     color: #888E5F;
     padding: 11px;
@@ -54,9 +51,9 @@ html{
 
 #fruitsContainer{
     width: 80%;
-    height: 500px;
-    margin: 50px auto 10px auto;
-    background-color: white;
+    height: 375px;
+    margin: 80px auto 10px auto;
+    background-image: url(images/gamebackground.png);
     box-shadow: 0px 4px #535aa8;
     -moz-box-shadow: 0px 4px #535aa8;
     -webkit-box-shadow: 0px 4px #535aa8;
