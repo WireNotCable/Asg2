@@ -20,6 +20,7 @@ $(document).ready(function(){
             username: Username,
             email: Email,
             password: Password,
+            points: 100,
         }
         var settings = {
         "async": true,
@@ -42,7 +43,9 @@ $(document).ready(function(){
     
     // Submit log in form
     $("#login-btn").on("click", function(e){
+        // console.log("hello2")
         e.preventDefault();
+        console.log("hello2")
         
         var responseList = [];
 
@@ -63,6 +66,7 @@ $(document).ready(function(){
             for (var i=0; i < response.length; i++){
               responseList.push(new User(response[i].username, response[i].password));
             }
+            console.log(responseList)
 
             // get value
             var Username = $("#login-username").val();
@@ -73,15 +77,17 @@ $(document).ready(function(){
 
               if(responseList[i].username == Username && responseList[i].password == Password){
                 alert("Login successful.");
+                // localStorage.setItem("signin", true)
                 window.location.assign("index.html"); //auto go back to home page
               }
             }
+            // create user object with username and password to store and responseList
+            function User(username, password){
+              this.username = username;
+              this.password = password;
+          }
           });
           
-          // create user object with username and password to store and responseList
-          function User(username, password){
-            this.username = username;
-            this.password = password;
-          }
+          
     })
 });

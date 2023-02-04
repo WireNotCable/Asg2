@@ -99,7 +99,6 @@ $(document).ready(function(){
       button.addEventListener('click', function(event){
         var buttonClicked = event.target
         if (buttonClicked.parentElement.nextElementSibling.innerHTML != 0){
-          
           quantity = buttonClicked.parentElement.nextElementSibling.innerHTML
           buttonClicked.parentElement.nextElementSibling.innerHTML = parseInt(quantity) - 1
           key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML

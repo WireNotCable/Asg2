@@ -15,7 +15,7 @@ $(document).ready(function(){
       let content = "";
       $.ajax(settings).done(function(response){
           for(var i=0; i < response.length; i++){
-              content = `<div class="box hi">
+              content = `<div class="box">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
                 <button class="fas fa-heart"></button>

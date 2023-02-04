@@ -106,6 +106,7 @@ section .container .user.signupBx .formBx input[type="submit"]
 {
     background: #e73e49;
 }
+/* Sign up */
 section .container .user .formBx .signup
 {
     position: relative;
@@ -122,11 +123,6 @@ section .container .user .formBx .signup a
    text-decoration: none; 
    color:#577eff;
 }
-
-/* section .container .user .formBx .signupBx
-{
-    display: none;
-} */
 section .container .signupBx
 {
     pointer-events: none;
@@ -153,9 +149,7 @@ section .container.active .signupBx .imgBx
     top:0;  
 }
 
-
-
-
+/* Sign In */
 section .container .signinBx .formBx
 {
     top:0;
