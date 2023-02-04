@@ -19,6 +19,8 @@ $(document).ready(function(){
         creditCardCheckmark.classList.remove('fill')
     });
 
+
+    // local storage
     function getAndParseAllLocalStorage() {
       $(".product-card").remove()
       let values = [];
@@ -142,33 +144,3 @@ $(document).ready(function(){
     updateTotal()
     } 
   )
-    
-
-    
-
-
-
-    
-
-    // clear local storage and add existing items back
-    // function updateStorage(){
-    //   localStorage.clear()
-    //   var items = document.querySelectorAll(".product-card")
-    //   let itemsData = []
-    //   for (var i = 0; i < items.length; i++){
-    //     var title = items[i].querySelector('.product-name').innerText
-    //     var price = items[i].querySelector('#price').innerText
-    //     var imageSrc = items[i].querySelector('img').src
-    //     var quantity = items[i].querySelector('#quantity').innerText
-    //     let newData = new Data(title, price, imageSrc, quantity)
-    //     itemsData.push(newData)
-    //   }
-    //   localStorage.setItem("itemsData", JSON.stringify(itemsData));
-    // }
-
-    // function Data(title, price, imageSrc, quantity) {
-    //   this.title = title;
-    //   this.price = price;
-    //   this.imageSrc = imageSrc;
-    //   this.quantity = quantity;
-    // }
