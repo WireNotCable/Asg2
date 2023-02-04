@@ -144,12 +144,12 @@ $(document).ready(function(){
 
               if(responseList[i].username == Username && responseList[i].password == Password){
                 alert("Login successful.");
-                localStorage.setItem("points", JSON.stringify(responseList[i].points))
+                localStorage.setItem("user", JSON.stringify(responseList[i].username))
                 window.location.assign("index.html"); //auto go back to home page
               }
             }
             // create user object with username and password to store and responseList
-            function User(username, password, points, address, DOB){
+            function User(username, password, points){
               this.username = username;
               this.password = password;
               this.points = points;

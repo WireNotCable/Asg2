@@ -1,4 +1,6 @@
 $(document).ready(function(){
+  // const APIKEY = "63d670813bc6b255ed0c43ff";  
+  const APIKEY = "63de1cc23bc6b255ed0c463a";
 
     // selecting of payment method
     var creditCardSelected = document.querySelector("#creditcard");
@@ -20,13 +22,14 @@ $(document).ready(function(){
     });
 
 
+
     // local storage
     function getAndParseAllLocalStorage() {
       $(".product-card").remove()
       let values = [];
       for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if (key != "points"){
+        if (key != "user"){
           let value = JSON.parse(localStorage.getItem(key));
           values.push({ key, value });
   
@@ -89,7 +92,6 @@ $(document).ready(function(){
       button.addEventListener('click', function(event){
         var buttonClicked = event.target
         quantity = buttonClicked.parentElement.previousElementSibling.innerHTML
-        console.log(quantity)
         buttonClicked.parentElement.previousElementSibling.innerHTML = parseInt(quantity) + 1
         key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
         let value = JSON.parse(localStorage.getItem(key));
@@ -128,30 +130,99 @@ $(document).ready(function(){
       var tax = 0
       var shippingFee = 4
       let cartItems = $('.detail .wrapper');
-      console.log(cartItems)
       for (var i = 0; i < cartItems.length; i++){
         let itemContainer = cartItems[i];
         let priceString = itemContainer.querySelector('#price').innerHTML;
         let price = parseFloat(priceString.replace('$',''))
         let quantity = parseInt(itemContainer.querySelector('#quantity').innerHTML);
         subtotal = parseFloat((subtotal + (price * quantity)).toFixed(2))
-        points = (JSON.parse(localStorage.getItem("points")))
         tax = subtotal * parseFloat(0.07)
-        console.log(tax)
         total = subtotal + tax + shippingFee - parseFloat(points/100)
       }
-      console.log(subtotal)
       document.querySelector('#subtotal').innerHTML = subtotal
       
       document.querySelector('#points').innerHTML = "-"+(points/100).toFixed(2)
-      console.log(tax.toFixed(2))
       document.querySelector('#tax').innerHTML = tax.toFixed(2)
       document.querySelector('#shipping').innerHTML = shippingFee.toFixed(2)
       document.querySelector('#total').innerHTML = total.toFixed(2)
-
-      
       }  
-      updateTotal()
+      
+    getPoints()
+    function getPoints(){
+      
+      // var points = 0
+      var name = JSON.parse(localStorage.getItem("user"))
+      // GET request
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "method": "GET",
+        "headers": {
+          "content-type": "application/json",
+          "x-apikey": APIKEY,
+          "cache-control": "no-cache"
+        }
+      }
+      $.ajax(settings).done(function (response){
+        points = parseFloat(response[0].points).toFixed(2)
+        updateTotal()
+      }) 
+    }
 
+    // Checkout event listener
+    
+    // Earn points after checkout
+    addPoints()
+    function addPoints(){
+      var name = JSON.parse(localStorage.getItem("user"))
+      var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "method": "GET",
+        "headers": {
+          "content-type": "application/json",
+          "x-apikey": APIKEY,
+          "cache-control": "no-cache"
+        },
+      }
+      $.ajax(settings).done(function (response){
+        console.log(response)
+        points = Math.round(parseFloat(document.querySelector('#total').innerHTML))
+        // console.log(points)
+        var newPoints = response[0].points += points
+        console.log(newPoints)
+        var id = response[0]._id,
+        jsondata = {
+          username : response[0].username,
+          email : response[0].email,
+          password : response[0].password,
+          points : newPoints,
+          address : response[0].address,
+          dob : response[0].dob,
+        }
+
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": `https://idasg2-bd89.restdb.io/rest/signup/${id}`,
+          "method": "PUT",
+          "headers": {
+              "content-type": "application/json",
+              "x-apikey": APIKEY,
+              "cache-control": "no-cache"
+          },
+          "processData": false,
+          "data": JSON.stringify(jsondata),
+          }
+      
+          $.ajax(settings).done(function (response) {
+            alert("Points added")
+          });
+        
+      }) 
+    }
+      
     } 
   )
