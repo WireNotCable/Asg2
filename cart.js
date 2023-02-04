@@ -26,38 +26,43 @@ $(document).ready(function(){
       let values = [];
       for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        let value = JSON.parse(localStorage.getItem(key));
-        values.push({ key, value });
-
-        var contents = `
-        <div class="product-card">
-            <div class="card">
-              <div class="img-box">
-                <img src="${value.imageSrc}" alt="${key}" width="80px" class="product-img">
-              </div>
-              <div class="detail">
-                <h4 class="product-name">${key}</h4>
-                <div class="wrapper">
-                  <div class="product-qty">
-                    <button id="decrement">
-                      <ion-icon name="remove-outline"></ion-icon>
-                    </button>
-                    <span id="quantity">${value.quantity}</span>
-                    <button id="increment">
-                      <ion-icon name="add-outline"></ion-icon>
-                    </button>
-                  </div>
-                  <div class="price">
-                    $ <span id="price">${value.price}</span>
+        if (key != "points"){
+          let value = JSON.parse(localStorage.getItem(key));
+          values.push({ key, value });
+  
+          var contents = `
+          <div class="product-card">
+              <div class="card">
+                <div class="img-box">
+                  <img src="${value.imageSrc}" alt="${key}" width="80px" class="product-img">
+                </div>
+                <div class="detail">
+                  <h4 class="product-name">${key}</h4>
+                  <div class="wrapper">
+                    <div class="product-qty">
+                      <button id="decrement">
+                        <ion-icon name="remove-outline"></ion-icon>
+                      </button>
+                      <span id="quantity">${value.quantity}</span>
+                      <button id="increment">
+                        <ion-icon name="add-outline"></ion-icon>
+                      </button>
+                    </div>
+                    <div class="price">
+                      $ <span id="price">${value.price}</span>
+                    </div>
                   </div>
                 </div>
+                <button class="product-close-btn">
+                  <ion-icon name="close-outline"></ion-icon>
+                </button>
               </div>
-              <button class="product-close-btn">
-                <ion-icon name="close-outline"></ion-icon>
-              </button>
             </div>
-          </div>
-        `
+          `
+        }
+        else{
+          i += 1
+        }
         $(".cart-item-box").append(contents)
       }
     }
@@ -121,6 +126,7 @@ $(document).ready(function(){
       var total = 0
       var subtotal = 0
       var tax = 0
+      var shippingFee = 4
       let cartItems = $('.detail .wrapper');
       console.log(cartItems)
       for (var i = 0; i < cartItems.length; i++){
@@ -129,18 +135,23 @@ $(document).ready(function(){
         let price = parseFloat(priceString.replace('$',''))
         let quantity = parseInt(itemContainer.querySelector('#quantity').innerHTML);
         subtotal = parseFloat((subtotal + (price * quantity)).toFixed(2))
-        document.querySelector('#subtotal').innerHTML = subtotal
-        
+        points = (JSON.parse(localStorage.getItem("points")))
         tax = subtotal * parseFloat(0.07)
-        document.querySelector('#tax').innerHTML = tax.toFixed(2)
-
-        let shippingFee = 4;
-        document.querySelector('#shipping').innerHTML = shippingFee.toFixed(2)
-
-        total = subtotal + tax + shippingFee
-        document.querySelector('#total').innerHTML = total.toFixed(2)
+        console.log(tax)
+        total = subtotal + tax + shippingFee - parseFloat(points/100)
       }
+      console.log(subtotal)
+      document.querySelector('#subtotal').innerHTML = subtotal
+      
+      document.querySelector('#points').innerHTML = "-"+(points/100).toFixed(2)
+      console.log(tax.toFixed(2))
+      document.querySelector('#tax').innerHTML = tax.toFixed(2)
+      document.querySelector('#shipping').innerHTML = shippingFee.toFixed(2)
+      document.querySelector('#total').innerHTML = total.toFixed(2)
+
+      
       }  
-    updateTotal()
+      updateTotal()
+
     } 
   )
