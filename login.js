@@ -1,75 +1,4 @@
 $(document).ready(function(){
-  var searchForm = document.querySelector(".search-form");
-  document.querySelector('#search-btn').addEventListener("click", function(){
-      searchForm.classList.toggle('active');
-      navbar.classList.remove('active');
-  });
-
-  var navbar = document.querySelector('.navbar');
-  document.querySelector('#menu-btn').addEventListener("click", function(){
-      navbar.classList.toggle('active');
-      searchForm.classList.remove('active');
-  });
-
-  window.onscroll = function() {
-      searchForm.classList.remove('active');
-      navbar.classList.remove('active');
-  }
-});
-
-
-
-  $(document).ready(function(){
-    $('.navbar-toggler').click(function(){
-        $('.navbar-collapse').slideToggle(300);
-    });
-    
-    smallScreenMenu();
-    let temp;
-    function resizeEnd(){
-        smallScreenMenu();
-    }
-  
-    $(window).resize(function(){
-        clearTimeout(temp);
-        temp = setTimeout(resizeEnd, 100);
-        resetMenu();
-    });
-  });
-  
-  
-  const subMenus = $('.sub-menu');
-  const menuLinks = $('.menu-link');
-  
-  function smallScreenMenu(){
-    if($(window).innerWidth() <= 992){
-        menuLinks.each(function(item){
-            $(this).click(function(){
-                $(this).next().slideToggle();
-            });
-        });
-    } else {
-        menuLinks.each(function(item){
-            $(this).off('click');
-        });
-    }
-  }
-  
-  function resetMenu(){
-    if($(window).innerWidth() > 992){
-        subMenus.each(function(item){
-            $(this).css('display', 'none');
-        });
-    }
-  }
-
-function toggleForm(){
-    section = document.querySelector('.section');
-    container = document.querySelector('.container');
-    container.classList.toggle('active');
-}
-
-$(document).ready(function(){
     const APIKEY = "63d670813bc6b255ed0c43ff";    
     
     // Submit sign up form
@@ -80,11 +9,11 @@ $(document).ready(function(){
         var Username = $("#signup-username").val();
         var Email = $("#signup-email").val();   
         var Password = $("#signup-password").val();
+        var ConfirmPassword = $("#signup-confirm-password")
         var Address = $("#signup-address").val();
         var DOB = $("#signup-DOB").val();
-        console.log("hi")
-        console.log(Address)
-        let jsondata = {
+        if (Password == ConfirmPassword){
+          let jsondata = {
             username: Username,
             email: Email,
             password: Password,
@@ -92,24 +21,24 @@ $(document).ready(function(){
             address: Address,
             dob: DOB,
         }
-        console.log(jsondata)
         var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://idasg2-ba66.restdb.io/rest/signup",
-        "method": "POST",
-        "headers": {
-            "content-type": "application/json",
-            "x-apikey": APIKEY,
-            "cache-control": "no-cache"
-        },
-        "processData": false,
-        "data": JSON.stringify(jsondata),
+          "async": true,
+          "crossDomain": true,
+          "url": "https://idasg2-ba66.restdb.io/rest/signup",
+          "method": "POST",
+          "headers": {
+              "content-type": "application/json",
+              "x-apikey": APIKEY,
+              "cache-control": "no-cache"
+          },
+          "processData": false,
+          "data": JSON.stringify(jsondata),
+          }
+      
+          $.ajax(settings).done(function (response) {
+          alert("Registration successful.");
+          });
         }
-    
-        $.ajax(settings).done(function (response) {
-        alert("Registration successful.");
-        });
     })
     
     // Submit log in form
@@ -158,4 +87,4 @@ $(document).ready(function(){
           
           
     })
-});
+  })
