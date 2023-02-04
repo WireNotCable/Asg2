@@ -1,70 +1,7 @@
-$(document).ready(function(){
-  var searchForm = document.querySelector(".search-form");
-  document.querySelector('#search-btn').addEventListener("click", function(){
-      searchForm.classList.toggle('active');
-      navbar.classList.remove('active');
-  });
 
-  var navbar = document.querySelector('.navbar');
-  document.querySelector('#menu-btn').addEventListener("click", function(){
-      navbar.classList.toggle('active');
-      searchForm.classList.remove('active');
-  });
-
-  window.onscroll = function() {
-      searchForm.classList.remove('active');
-      navbar.classList.remove('active');
-  }
-});
-
-
-
-  $(document).ready(function(){
-    $('.navbar-toggler').click(function(){
-        $('.navbar-collapse').slideToggle(300);
-    });
-    
-    smallScreenMenu();
-    let temp;
-    function resizeEnd(){
-        smallScreenMenu();
-    }
-  
-    $(window).resize(function(){
-        clearTimeout(temp);
-        temp = setTimeout(resizeEnd, 100);
-        resetMenu();
-    });
-  });
-  
-  
-  const subMenus = $('.sub-menu');
-  const menuLinks = $('.menu-link');
-  
-  function smallScreenMenu(){
-    if($(window).innerWidth() <= 992){
-        menuLinks.each(function(item){
-            $(this).click(function(){
-                $(this).next().slideToggle();
-            });
-        });
-    } else {
-        menuLinks.each(function(item){
-            $(this).off('click');
-        });
-    }
-  }
-  
-  function resetMenu(){
-    if($(window).innerWidth() > 992){
-        subMenus.each(function(item){
-            $(this).css('display', 'none');
-        });
-    }
-  }
-  
 $(document).ready(function(){
       const APIKEY = "63d670813bc6b255ed0c43ff";  
+      // const APIKEY = "63de1cc23bc6b255ed0c463a";
 
       var settings = {
           "async": true,
@@ -106,7 +43,6 @@ $(document).ready(function(){
 
           // event listener for add to cart
           var addToCartButtons = document.querySelectorAll(".fa-shopping-cart")
-          console.log(addToCartButtons)
           for (var i = 0; i < addToCartButtons.length; i++){
             var button = addToCartButtons[i]
             button.addEventListener('click',addToCartClicked)
@@ -142,4 +78,4 @@ $(document).ready(function(){
             }
 
         })
-      })
+      }) 

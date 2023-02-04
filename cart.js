@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  // const APIKEY = "63d670813bc6b255ed0c43ff";  
-  const APIKEY = "63de1cc23bc6b255ed0c463a";
+  const APIKEY = "63d670813bc6b255ed0c43ff";  
+  // const APIKEY = "63de1cc23bc6b255ed0c463a";
 
     // selecting of payment method
     var creditCardSelected = document.querySelector("#creditcard");
@@ -8,12 +8,14 @@ $(document).ready(function(){
     var payPalSelected = document.querySelector("#paypal");
     var payPalCheckmark = document.querySelector("#paypal .checkmark");
 
+    // credit card payment selected
     document.querySelector('#creditcard').addEventListener("click", function(){
         creditCardSelected.classList.add('selected')
         creditCardCheckmark.classList.add('fill')
         payPalSelected.classList.remove('selected')
         payPalCheckmark.classList.remove('fill')
     });
+    // paypal payment method selected
     document.querySelector('#paypal').addEventListener("click", function(){
         payPalSelected.classList.add('selected')
         payPalCheckmark.classList.add('fill')
@@ -64,13 +66,14 @@ $(document).ready(function(){
           `
         }
         else{
-          i += 1
+          continue
         }
         $(".cart-item-box").append(contents)
       }
     }
 
     getAndParseAllLocalStorage()
+    getPoints()
       
     // Remove item
     var removeCartItemButtons = document.querySelectorAll(".product-close-btn")
@@ -81,8 +84,8 @@ $(document).ready(function(){
         buttonClicked.parentElement.parentElement.parentElement.remove()
         key = buttonClicked.parentElement.previousElementSibling.firstElementChild.innerHTML
         localStorage.removeItem(key)
+        getPoints()
       })
-      updateTotal()
     }
 
     // Add quantity
@@ -97,7 +100,7 @@ $(document).ready(function(){
         let value = JSON.parse(localStorage.getItem(key));
         value.quantity += 1
         localStorage.setItem(key, JSON.stringify(value));
-        updateTotal()
+        getPoints()
       })
     }
 
@@ -118,17 +121,18 @@ $(document).ready(function(){
             buttonClicked.parentElement.nextElementSibling.innerHTML = 1
           }
           localStorage.setItem(key, JSON.stringify(value));
-          updateTotal()
+          getPoints()
         }
       })
     }
 
     // Calculate Total
-    function updateTotal() {
+    function updateTotal(point) {
       var total = 0
       var subtotal = 0
       var tax = 0
       var shippingFee = 4
+      // var points = points
       let cartItems = $('.detail .wrapper');
       for (var i = 0; i < cartItems.length; i++){
         let itemContainer = cartItems[i];
@@ -137,26 +141,31 @@ $(document).ready(function(){
         let quantity = parseInt(itemContainer.querySelector('#quantity').innerHTML);
         subtotal = parseFloat((subtotal + (price * quantity)).toFixed(2))
         tax = subtotal * parseFloat(0.07)
+        if (points/100 > subtotal){
+          points = subtotal*100
+        }
+        else{
+          points = point
+        }
         total = subtotal + tax + shippingFee - parseFloat(points/100)
       }
+      console.log(points)
       document.querySelector('#subtotal').innerHTML = subtotal
-      
       document.querySelector('#points').innerHTML = "-"+(points/100).toFixed(2)
       document.querySelector('#tax').innerHTML = tax.toFixed(2)
       document.querySelector('#shipping').innerHTML = shippingFee.toFixed(2)
       document.querySelector('#total').innerHTML = total.toFixed(2)
+      document.querySelector('#payAmount').innerHTML = total.toFixed(2)
       }  
       
     getPoints()
     function getPoints(){
-      
-      // var points = 0
       var name = JSON.parse(localStorage.getItem("user"))
       // GET request
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
@@ -165,21 +174,25 @@ $(document).ready(function(){
         }
       }
       $.ajax(settings).done(function (response){
-        points = parseFloat(response[0].points).toFixed(2)
-        updateTotal()
+        point = parseFloat(response[0].points).toFixed(2)
+        console.log(points)
+        updateTotal(point)
       }) 
     }
 
     // Checkout event listener
-    
+    var button = document.querySelector("#makePaymentBtn")
+    button.addEventListener('click', function(event){
+      addPoints()
+      localStorage.clear()
+    })
     // Earn points after checkout
-    addPoints()
     function addPoints(){
       var name = JSON.parse(localStorage.getItem("user"))
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
@@ -188,11 +201,13 @@ $(document).ready(function(){
         },
       }
       $.ajax(settings).done(function (response){
-        console.log(response)
+        usedPoints = parseFloat(document.querySelector('#points').innerHTML)*100
         points = Math.round(parseFloat(document.querySelector('#total').innerHTML))
         // console.log(points)
-        var newPoints = response[0].points += points
-        console.log(newPoints)
+        console.log(response[0].points)
+        console.log(usedPoints)
+        console.log(points)
+        var newPoints = response[0].points + usedPoints + points
         var id = response[0]._id,
         jsondata = {
           username : response[0].username,
@@ -206,7 +221,7 @@ $(document).ready(function(){
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": `https://idasg2-bd89.restdb.io/rest/signup/${id}`,
+          "url": `https://idasg2-ba66.restdb.io/rest/signup/${id}`,
           "method": "PUT",
           "headers": {
               "content-type": "application/json",
