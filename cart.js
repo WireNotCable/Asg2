@@ -1,88 +1,175 @@
-'use strict';
+$(document).ready(function(){
 
-// all initial elements
-const payAmountBtn = document.querySelector('#payAmount');
-const decrementBtn = document.querySelectorAll('#decrement');
-const quantityElem = document.querySelectorAll('#quantity');
-const incrementBtn = document.querySelectorAll('#increment');
-const priceElem = document.querySelectorAll('#price');
-const subtotalElem = document.querySelector('#subtotal');
-const taxElem = document.querySelector('#tax');
-const totalElem = document.querySelector('#total');
+    // selecting of payment method
+    var creditCardSelected = document.querySelector("#creditcard");
+    var creditCardCheckmark = document.querySelector("#creditcard .checkmark");
+    var payPalSelected = document.querySelector("#paypal");
+    var payPalCheckmark = document.querySelector("#paypal .checkmark");
+
+    document.querySelector('#creditcard').addEventListener("click", function(){
+        creditCardSelected.classList.add('selected')
+        creditCardCheckmark.classList.add('fill')
+        payPalSelected.classList.remove('selected')
+        payPalCheckmark.classList.remove('fill')
+    });
+    document.querySelector('#paypal').addEventListener("click", function(){
+        payPalSelected.classList.add('selected')
+        payPalCheckmark.classList.add('fill')
+        creditCardSelected.classList.remove('selected')
+        creditCardCheckmark.classList.remove('fill')
+    });
+
+    function getAndParseAllLocalStorage() {
+      $(".product-card").remove()
+      let values = [];
+      for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+        let value = JSON.parse(localStorage.getItem(key));
+        values.push({ key, value });
+
+        var contents = `
+        <div class="product-card">
+            <div class="card">
+              <div class="img-box">
+                <img src="${value.imageSrc}" alt="${key}" width="80px" class="product-img">
+              </div>
+              <div class="detail">
+                <h4 class="product-name">${key}</h4>
+                <div class="wrapper">
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+                    <span id="quantity">${value.quantity}</span>
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+                  <div class="price">
+                    $ <span id="price">${value.price}</span>
+                  </div>
+                </div>
+              </div>
+              <button class="product-close-btn">
+                <ion-icon name="close-outline"></ion-icon>
+              </button>
+            </div>
+          </div>
+        `
+        $(".cart-item-box").append(contents)
+      }
+    }
+
+    getAndParseAllLocalStorage()
+      
+    // Remove item
+    var removeCartItemButtons = document.querySelectorAll(".product-close-btn")
+    for (var i = 0; i<removeCartItemButtons.length; i++){
+      var button = removeCartItemButtons[i]
+      button.addEventListener('click', function(event){
+        var buttonClicked = event.target
+        buttonClicked.parentElement.parentElement.parentElement.remove()
+        key = buttonClicked.parentElement.previousElementSibling.firstElementChild.innerHTML
+        localStorage.removeItem(key)
+      })
+      updateTotal()
+    }
+
+    // Add quantity
+    var AddQuantityButtons = document.querySelectorAll("#increment")
+    for (var i = 0; i < AddQuantityButtons.length; i++){
+      var button = AddQuantityButtons[i]
+      button.addEventListener('click', function(event){
+        var buttonClicked = event.target
+        quantity = buttonClicked.parentElement.previousElementSibling.innerHTML
+        console.log(quantity)
+        buttonClicked.parentElement.previousElementSibling.innerHTML = parseInt(quantity) + 1
+        key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
+        let value = JSON.parse(localStorage.getItem(key));
+        value.quantity += 1
+        localStorage.setItem(key, JSON.stringify(value));
+        updateTotal()
+      })
+    }
+
+    // Minus quantity
+    var MinusQuantityButtons = document.querySelectorAll("#decrement")
+    for (var i = 0; i < MinusQuantityButtons.length; i++){
+      var button = MinusQuantityButtons[i]
+      button.addEventListener('click', function(event){
+        var buttonClicked = event.target
+        if (buttonClicked.parentElement.nextElementSibling.innerHTML != 0){
+          
+          quantity = buttonClicked.parentElement.nextElementSibling.innerHTML
+          buttonClicked.parentElement.nextElementSibling.innerHTML = parseInt(quantity) - 1
+          key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
+          let value = JSON.parse(localStorage.getItem(key));
+          value.quantity -= 1
+          if (value.quantity == 0 || parseInt(quantity)==0){
+            value.quantity = 1
+            buttonClicked.parentElement.nextElementSibling.innerHTML = 1
+          }
+          localStorage.setItem(key, JSON.stringify(value));
+          updateTotal()
+        }
+      })
+    }
+
+    // Calculate Total
+    function updateTotal() {
+      var total = 0
+      var subtotal = 0
+      var tax = 0
+      let cartItems = $('.detail .wrapper');
+      console.log(cartItems)
+      for (var i = 0; i < cartItems.length; i++){
+        let itemContainer = cartItems[i];
+        let priceString = itemContainer.querySelector('#price').innerHTML;
+        let price = parseFloat(priceString.replace('$',''))
+        let quantity = parseInt(itemContainer.querySelector('#quantity').innerHTML);
+        subtotal = parseFloat((subtotal + (price * quantity)).toFixed(2))
+        document.querySelector('#subtotal').innerHTML = subtotal
+        
+        tax = subtotal * parseFloat(0.07)
+        document.querySelector('#tax').innerHTML = tax.toFixed(2)
+
+        let shippingFee = 4;
+        document.querySelector('#shipping').innerHTML = shippingFee.toFixed(2)
+
+        total = subtotal + tax + shippingFee
+        document.querySelector('#total').innerHTML = total.toFixed(2)
+      }
+      }  
+    updateTotal()
+    } 
+  )
+    
+
+    
 
 
-// loop: for add event on multiple `increment` & `decrement` button
-for (let i = 0; i < incrementBtn.length; i++) {
 
-  incrementBtn[i].addEventListener('click', function () {
+    
 
-    // collect the value of `quantity` textContent,
-    // based on clicked `increment` button sibling.
-    let increment = Number(this.previousElementSibling.textContent);
+    // clear local storage and add existing items back
+    // function updateStorage(){
+    //   localStorage.clear()
+    //   var items = document.querySelectorAll(".product-card")
+    //   let itemsData = []
+    //   for (var i = 0; i < items.length; i++){
+    //     var title = items[i].querySelector('.product-name').innerText
+    //     var price = items[i].querySelector('#price').innerText
+    //     var imageSrc = items[i].querySelector('img').src
+    //     var quantity = items[i].querySelector('#quantity').innerText
+    //     let newData = new Data(title, price, imageSrc, quantity)
+    //     itemsData.push(newData)
+    //   }
+    //   localStorage.setItem("itemsData", JSON.stringify(itemsData));
+    // }
 
-    // plus `increment` variable value by 1
-    increment++;
-
-    // show the `increment` variable value on `quantity` element
-    // based on clicked `increment` button sibling.
-    this.previousElementSibling.textContent = increment;
-
-    totalCalc();
-
-  });
-
-
-  decrementBtn[i].addEventListener('click', function () {
-
-    // collect the value of `quantity` textContent,
-    // based on clicked `decrement` button sibling.
-    let decrement = Number(this.nextElementSibling.textContent);
-
-    // minus `decrement` variable value by 1 based on condition
-    decrement <= 1 ? 1 : decrement--;
-
-    // show the `decrement` variable value on `quantity` element
-    // based on clicked `decrement` button sibling.
-    this.nextElementSibling.textContent = decrement;
-
-    totalCalc();
-
-  });
-
-}
-
-
-
-// function: for calculating total amount of product price
-const totalCalc = function () {
-
-  // declare all initial variable
-  const tax = 0.05;
-  let subtotal = 0;
-  let totalTax = 0;
-  let total = 0;
-
-  // loop: for calculating `subtotal` value from every single product
-  for (let i = 0; i < quantityElem.length; i++) {
-
-    subtotal += Number(quantityElem[i].textContent) * Number(priceElem[i].textContent);
-
-  }
-
-  // show the `subtotal` variable value on `subtotalElem` element
-  subtotalElem.textContent = subtotal.toFixed(2);
-
-  // calculating the `totalTax`
-  totalTax = subtotal * tax;
-
-  // show the `totalTax` on `taxElem` element
-  taxElem.textContent = totalTax.toFixed(2);
-
-  // calcualting the `total`
-  total = subtotal + totalTax;
-
-  // show the `total` variable value on `totalElem` & `payAmountBtn` element
-  totalElem.textContent = total.toFixed(2);
-  payAmountBtn.textContent = total.toFixed(2);
-
-}
+    // function Data(title, price, imageSrc, quantity) {
+    //   this.title = title;
+    //   this.price = price;
+    //   this.imageSrc = imageSrc;
+    //   this.quantity = quantity;
+    // }

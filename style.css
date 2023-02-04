@@ -194,7 +194,7 @@ body{
 }
 
 /*Positioning the slides container*/
-.btn {
+.slides-btn {
     margin-top: 1rem;
     display: inline-block;
     padding: .8rem 3rem;
@@ -204,7 +204,7 @@ body{
     cursor: pointer;
   }
   
-  .btn:hover {
+  .slides-btn:hover {
     background: #222;
   }
 
