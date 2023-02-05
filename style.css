@@ -114,6 +114,7 @@ body{
     color: green;
 }
 
+/* Profile Pop-up */
 .header .profile-popup{
   position: absolute;
   top: 110%;
@@ -153,8 +154,35 @@ body{
   margin-left: 1rem;
 }
 
-/* Profile */
+/* Login Pop-up */
 
+.header .profile-popup .login{
+  display: flex;
+  align-items: center;
+  margin-left: 2;
+  padding: 2rem 2rem;
+}
+
+.header .profile-popup .login a{
+  font-size: 2rem;
+  margin-left: -5rem;
+  display: block;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.header .profile-popup .login a button{
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 
 /* Media Query for responsive*/
 
