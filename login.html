@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- nav bar -->
     <header class="header">
         <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
         <nav class="navbar">
@@ -40,8 +41,10 @@
 
         </div>
     </header>
+
     <section>
         <div class="container">
+            <!-- sign in section -->
             <div class="user signinBx">
                 <div class="imgBx"><img src="images/login-image1.png"></div>
                 <div class="formBx">
@@ -55,6 +58,7 @@
                 </div>
             </div>
 
+            <!-- sign up section -->
             <div class="user signupBx">
                 <div class="formBx">
                     <form id="signupForm">
@@ -64,6 +68,7 @@
                         <input type="text" id="signup-address" placeholder="Address" required>
                         <input type="date" id="signup-DOB" placeholder="Date of Birth" required>
                         <input type="password" id="signup-password" placeholder="Create Password" required>
+                        <div id="passwordNotSame">Passwords do not match!</div>
                         <input type="password" id="signup-confirm-password" placeholder="Confirm Password" required>
                         <input id="signup-btn" type="submit" value="Sign Up">
                         <p class="signin">Already have an account? <a href="#" onclick="toggleForm();">Sign in.</a></p>
@@ -73,6 +78,8 @@
             </div>
         </div>
     </section>
+
+    <!-- script files -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"

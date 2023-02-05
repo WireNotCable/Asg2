@@ -158,7 +158,12 @@ section .container.active .signinBx .formBx
 {
     top:100%;
 }
-
+section .container .user .formBx .signin a
+{
+   font-weight: 600;
+   text-decoration: none; 
+   color:#e73e49;
+}
 section .container .imgBx
 {
     top:0;
