@@ -1,70 +1,7 @@
-$(document).ready(function(){
-  var searchForm = document.querySelector(".search-form");
-  document.querySelector('#search-btn').addEventListener("click", function(){
-      searchForm.classList.toggle('active');
-      navbar.classList.remove('active');
-  });
 
-  var navbar = document.querySelector('.navbar');
-  document.querySelector('#menu-btn').addEventListener("click", function(){
-      navbar.classList.toggle('active');
-      searchForm.classList.remove('active');
-  });
-
-  window.onscroll = function() {
-      searchForm.classList.remove('active');
-      navbar.classList.remove('active');
-  }
-});
-
-
-
-  $(document).ready(function(){
-    $('.navbar-toggler').click(function(){
-        $('.navbar-collapse').slideToggle(300);
-    });
-    
-    smallScreenMenu();
-    let temp;
-    function resizeEnd(){
-        smallScreenMenu();
-    }
-  
-    $(window).resize(function(){
-        clearTimeout(temp);
-        temp = setTimeout(resizeEnd, 100);
-        resetMenu();
-    });
-  });
-  
-  
-  const subMenus = $('.sub-menu');
-  const menuLinks = $('.menu-link');
-  
-  function smallScreenMenu(){
-    if($(window).innerWidth() <= 992){
-        menuLinks.each(function(item){
-            $(this).click(function(){
-                $(this).next().slideToggle();
-            });
-        });
-    } else {
-        menuLinks.each(function(item){
-            $(this).off('click');
-        });
-    }
-  }
-  
-  function resetMenu(){
-    if($(window).innerWidth() > 992){
-        subMenus.each(function(item){
-            $(this).css('display', 'none');
-        });
-    }
-  }
-  
 $(document).ready(function(){
       const APIKEY = "63d670813bc6b255ed0c43ff";  
+      // const APIKEY = "63de1cc23bc6b255ed0c463a";
 
       var settings = {
           "async": true,
@@ -80,7 +17,7 @@ $(document).ready(function(){
       let content = "";
       $.ajax(settings).done(function(response){
           for(var i=0; i < response.length; i++){
-              content = `<div class="box hi">
+              content = `<div class="box">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
                 <button class="fas fa-heart"></button>
@@ -106,7 +43,6 @@ $(document).ready(function(){
 
           // event listener for add to cart
           var addToCartButtons = document.querySelectorAll(".fa-shopping-cart")
-          console.log(addToCartButtons)
           for (var i = 0; i < addToCartButtons.length; i++){
             var button = addToCartButtons[i]
             button.addEventListener('click',addToCartClicked)
@@ -118,14 +54,22 @@ $(document).ready(function(){
               var title = button.parentElement.nextElementSibling.nextElementSibling.querySelector('.product-description').innerText
               var price = button.parentElement.nextElementSibling.nextElementSibling.querySelector('.price').innerText
               var imageSrc = button.parentElement.nextElementSibling.querySelector('.imageLink').src
-              console.log(title, price, imageSrc)
+
+              // if item not in local storage, add item to local storage
+              if (localStorage.getItem(title) == null){
+                var quantity = 1;
+                let newData = new Data(price, imageSrc, quantity);
+                localStorage.setItem(title, JSON.stringify(newData))
+              }
+              // if item in local storage, add 1 to quantity
+              else{
+                console.log("not null")
+                let value = JSON.parse(localStorage.getItem(title));
+                value.quantity += 1;
+                let newData = new Data(price, imageSrc, value.quantity);
+                localStorage.setItem(title, JSON.stringify(newData))
+              }
               
-              // if (localStorage.getItem("itemsData") !== null) {
-              //     itemsData = JSON.parse(localStorage.getItem("itemsData"));
-              //     }
-              var quantity = 1;
-              let newData = new Data(price, imageSrc, quantity);
-              localStorage.setItem(title, JSON.stringify(newData))
           }
           function Data(price, imageSrc, quantity) {
                 this.price = price;
@@ -134,32 +78,4 @@ $(document).ready(function(){
             }
 
         })
-      })
-
-          // add data of selected items to local storage after user clicked on add to cart button
-      // function addToCartClicked(event){
-      //     var button = event.target
-      //     var title = button.parentElement.nextElementSibling.nextElementSibling.querySelector('.product-description').innerText
-      //     var price = button.parentElement.nextElementSibling.nextElementSibling.querySelector('.price').innerText
-      //     var imageSrc = button.parentElement.nextElementSibling.querySelector('.imageLink').src
-      //     console.log(title, price, imageSrc)
-      //     var quantity = 1
-      //     let itemsData = []
-          
-      //     if (localStorage.getItem("itemsData") !== null) {
-      //     itemsData = JSON.parse(localStorage.getItem("itemsData"));
-      //     }
-
-      //     if (itemsData.some((item) => item.title === title)) {
-      //     alert("Item has been added.")
-      //     return
-      //     }
-
-      //     let newData = new Data(title, price, imageSrc, quantity);
-
-        // add newData to itemsData and store itemsData in local storage
-    //     itemsData.push(newData);
-    //     console.log(newData)
-    //     localStorage.setItem("itemsData", JSON.stringify(itemsData));
-    // }
-  
+      }) 

@@ -80,12 +80,19 @@ $(document).ready(function(){
         var Username = $("#signup-username").val();
         var Email = $("#signup-email").val();   
         var Password = $("#signup-password").val();
-
+        var Address = $("#signup-address").val();
+        var DOB = $("#signup-DOB").val();
+        console.log("hi")
+        console.log(Address)
         let jsondata = {
             username: Username,
             email: Email,
             password: Password,
+            points: 100,
+            address: Address,
+            dob: DOB,
         }
+        console.log(jsondata)
         var settings = {
         "async": true,
         "crossDomain": true,
@@ -107,8 +114,7 @@ $(document).ready(function(){
     
     // Submit log in form
     $("#login-btn").on("click", function(e){
-        e.preventDefault();
-        
+        e.preventDefault();        
         var responseList = [];
 
         // GET request
@@ -126,7 +132,7 @@ $(document).ready(function(){
           
           $.ajax(settings).done(function (response) {
             for (var i=0; i < response.length; i++){
-              responseList.push(new User(response[i].username, response[i].password));
+              responseList.push(new User(response[i].username, response[i].password, response[i].points));
             }
 
             // get value
@@ -138,15 +144,18 @@ $(document).ready(function(){
 
               if(responseList[i].username == Username && responseList[i].password == Password){
                 alert("Login successful.");
+                localStorage.setItem("user", JSON.stringify(responseList[i].username))
                 window.location.assign("index.html"); //auto go back to home page
               }
             }
+            // create user object with username and password to store and responseList
+            function User(username, password, points){
+              this.username = username;
+              this.password = password;
+              this.points = points;
+          }
           });
           
-          // create user object with username and password to store and responseList
-          function User(username, password){
-            this.username = username;
-            this.password = password;
-          }
+          
     })
 });
