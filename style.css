@@ -26,6 +26,17 @@ html{
     scroll-behavior: smooth;
     scroll-padding-top: 7rem;
 }
+/* Lottie animation */
+#lp-loading {
+  background: rgba(10, 0, 0, 0.25);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2147483647;
+}
+/* Lottie end */
 body{
     background:#eee;
 }
@@ -34,13 +45,12 @@ body{
     top:0;
     left:0;
     right:0;
-    z-index: 1000;
+    z-index: 30000;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem 9%;
     background: #fff;
-    box-shadow: var(--box-shadow);
 }
 .header .logo{
     font-size: 2.5rem;
@@ -76,7 +86,54 @@ body{
 #menu-btn{
     display: none;
 }
-
+/* Filter  */
+.filter-btns{
+  top: 85px;
+  position: relative;
+  z-index: 0000;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+.filter-btn{
+  background: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 10px 30px;
+  font-size: 13px;
+  color: #a8a8a8;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.filter-btn::after{
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background-color: #555;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out
+}
+.filter-btn:hover{
+  color: #555;
+}
+.filter-btn:hover::after{
+  width: 100%;
+}
+/* Filter end */
 /* Search bar */
 .header .search-form{
     position: absolute;
@@ -122,6 +179,10 @@ body{
 @media (max-width:991px){
     html{
         font-size: 55%;
+        z-index: 30000;
+    }
+    .filter-btns{
+      top: 75px;
     }
     .header{
         padding: 2rem;
@@ -130,6 +191,7 @@ body{
 @media (max-width:768px){
     #menu-btn{
         display: inline-block;
+        z-index: 30000;
     }
     .header .search-form{
         width: 90%;
@@ -560,10 +622,13 @@ body{
     }
 }
 @media (max-width:450px){
-    html{
-        font-size: 50%;
+  .filter-btns{
+    top: 68px;
+  }
+  html{
+      font-size: 50%;
+  }
+  .home .slides-container .slide .content h3 {
+      font-size: 5rem;
     }
-    .home .slides-container .slide .content h3 {
-        font-size: 5rem;
-      }
 }
