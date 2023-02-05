@@ -80,7 +80,7 @@ $(document).ready(function(){
             }
             else{
               alert("Login successful.");
-              localStorage.setItem("user", JSON.stringify(responseList[i].username));
+              localStorage.setItem("user", JSON.stringify(response[0].username));
               window.location.assign("index.html"); //auto go back to home page
             }
           });  
