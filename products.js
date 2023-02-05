@@ -97,9 +97,6 @@ $(document).ready(function(){
         }
         addToCart()
       })
-
-      
-
     }
 
     function addToCart(){
