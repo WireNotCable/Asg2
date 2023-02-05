@@ -171,8 +171,75 @@ body{
     color: green;
 }
 
-/* Profile */
+/* Profile Pop-up */
+.header .profile-popup{
+  position: absolute;
+  top: 110%;
+  right: -110%;
+  width: 50rem;
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  background: #fff;
+}
 
+.header .profile-popup.active{
+  right: 2rem;
+  transition: 0.4s linear;
+}
+
+.header .profile-popup .profile-content{
+  display: flex;
+  align-items: center;
+  margin-left: 2;
+  padding: 2rem 2rem;
+}
+
+.header .profile-popup .profile-name h2{
+  font-size: 2rem;
+  margin-top: 2rem;
+  margin-left: 3rem;
+  margin-bottom: -1.5rem;
+  display: block;
+}
+
+.header .profile-popup .profile-content h4{
+  font-size: 1.5rem;
+  display: block;
+}
+
+.header .profile-popup .profile-content lottie-player{
+  margin-left: 1rem;
+}
+
+/* Login Pop-up */
+
+.header .profile-popup .login{
+  display: flex;
+  align-items: center;
+  margin-left: 2;
+  padding: 2rem 2rem;
+}
+
+.header .profile-popup .login a{
+  font-size: 2rem;
+  margin-left: -5rem;
+  display: block;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.header .profile-popup .login a button{
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
 
 /* Media Query for responsive*/
 
@@ -275,7 +342,7 @@ body{
 
 .home {
     padding-top: 14rem;
-    background: url(../images/home-bg.jpg) no-repeat;
+    background: url(images/home-bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;

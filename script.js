@@ -3,12 +3,21 @@ $(document).ready(function(){
   document.querySelector('#search-btn').addEventListener("click", function(){
       searchForm.classList.toggle('active');
       navbar.classList.remove('active');
+      profile.classList.remove('active');
   });
 
   var navbar = document.querySelector('.navbar');
   document.querySelector('#menu-btn').addEventListener("click", function(){
       navbar.classList.toggle('active');
       searchForm.classList.remove('active');
+      profile.classList.remove('active');
+  });
+
+  var profile = document.querySelector('.profile-popup');
+  document.querySelector('#login-btn').addEventListener("click", function(){
+    profile.classList.toggle('active');
+    navbar.classList.remove('active');
+    searchForm.classList.remove('active');
   });
 
   window.onscroll = function() {
