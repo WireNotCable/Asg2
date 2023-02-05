@@ -4,31 +4,35 @@ html{
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
+body{
+    margin: 0px;
+}
 
-#container{
+ /* #container{
     height: 500px;
     width: 100%;
     background-color: #9DD2EA;
-    margin: 10px auto;
+    /* margin: 10px auto; 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 0px 0px #009de4;
     -moz-box-shadow: 0px 4px 0px 0px #009de4;
     -webkit-box-shadow: 0px 4px 0px 0px #009de4;
-/*        box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color]*/
+    box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
     position: relative;
-}
+}  */
 
 #score{
     position: absolute;
+    right: 0;
     background-color: #F1FF92;
     color: #888E5F;
     padding: 11px;
-    position: absolute;
-    left: 700px;
     box-shadow: 0px 4px 0px #9da853;
     -moz-box-shadow: 0px 4px 0px #9da853;
     -webkit-box-shadow: 0px 4px 0px #9da853;
+    z-index: 1000;
+    width : 10%;
 }
 
 #correct{
@@ -50,10 +54,11 @@ html{
 }
 
 #fruitsContainer{
-    width: 80%;
-    height: 375px;
-    margin: 80px auto 10px auto;
-    background-image: url(images/gamebackground.png);
+    width: 100vw;
+    height: 100vh;
+    /* margin: 80px auto 10px auto; */
+    background-image: url(images/background3.gif);
+    opacity: 0.9;
     box-shadow: 0px 4px #535aa8;
     -moz-box-shadow: 0px 4px #535aa8;
     -webkit-box-shadow: 0px 4px #535aa8;
@@ -61,8 +66,9 @@ html{
     text-align: center;
     font-family: cursive, sans-serif;
     color: black;
-    position: relative;
+    position: fixed;
     overflow: hidden;
+    z-index: -1;
 }
 
 #choices{
@@ -173,4 +179,10 @@ html{
     position: absolute;
     height: 150px;
     width: 150px;
+    opacity: 1 !important;
+    z-index: 500;
+}
+#fruit1 {
+    opacity: 1 !important;
+    z-index: 500;
 }

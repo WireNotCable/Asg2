@@ -158,6 +158,16 @@ section .container.active .signinBx .formBx
 {
     top:100%;
 }
+section .container .user .formBx .signin
+{
+    position: relative;
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color:#555;
+    text-transform: uppercase;
+    font-weight: 300;
+}
 section .container .user .formBx .signin a
 {
    font-weight: 600;

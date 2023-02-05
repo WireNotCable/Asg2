@@ -16,7 +16,6 @@ $(document).ready(function(){
           var Password = $("#signup-password").val();
           var ConfirmPassword = $("#signup-confirm-password").val()
           var Address = $("#signup-address").val();
-          var DOB = $("#signup-DOB").val();
           if (Password == ConfirmPassword){
             $("#passwordNotSame").css('display','none');
             let jsondata = {
@@ -25,7 +24,6 @@ $(document).ready(function(){
               password: Password,
               points: 100,
               address: Address,
-              dob: DOB,
           }
           var settings = {
           "async": true,

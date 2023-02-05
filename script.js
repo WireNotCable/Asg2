@@ -28,7 +28,6 @@ $(document).ready(function(){
 
 
 
-  $(document).ready(function(){
     $('.navbar-toggler').click(function(){
         $('.navbar-collapse').slideToggle(300);
     });
@@ -44,7 +43,6 @@ $(document).ready(function(){
         temp = setTimeout(resizeEnd, 100);
         resetMenu();
     });
-  });
   
   
   const subMenus = $('.sub-menu');
@@ -88,3 +86,6 @@ $(document).ready(function(){
     index = (index - 1 + slides.length) % slides.length;
     slides[index].classList.add('active');
   }
+
+
+  

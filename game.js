@@ -75,10 +75,13 @@ function addHearts(){
 
 function startAction(){
     
+    
     //generate a fruit
     $("#fruit1").show();
     chooseFruit(); //choose a random fruit
-    $("#fruit1").css({'left' : Math.round(550*Math.random()), 'top' : -50}); //random position
+    var width = window.innerWidth;
+    console.log(width)
+    $("#fruit1").css({'left' : Math.round((width-150)*Math.random()), 'top' : -50},); //random position
     
     //generate a random step
     step = 1+ Math.round(5*Math.random()); // change step
@@ -96,7 +99,9 @@ function startAction(){
                 //generate a fruit
                 $("#fruit1").show();
                 chooseFruit(); //choose a random fruit
-                $("#fruit1").css({'left' : Math.round(550*Math.random()), 'top' : -50}); //random position
+                var width = window.innerWidth;
+                console.log(width)
+                $("#fruit1").css({'left' : Math.round((width-150)*Math.random()), 'top' : -50}); //random position
 
                 //generate a random step
                 step = 1+ Math.round(5*Math.random()); // change step
