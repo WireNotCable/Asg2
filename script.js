@@ -13,12 +13,24 @@ $(document).ready(function(){
       profile.classList.remove('active');
   });
 
-  var profile = document.querySelector('.profile-popup');
-  document.querySelector('#login-btn').addEventListener("click", function(){
-    profile.classList.toggle('active');
-    navbar.classList.remove('active');
-    searchForm.classList.remove('active');
-  });
+  login = localStorage.getItem("user")
+  if (login != null){
+    var profile = document.querySelector('.profile-popup');
+    document.querySelector('#login-btn').addEventListener("click", function(){
+      profile.classList.toggle('active');
+      navbar.classList.remove('active');
+      searchForm.classList.remove('active');
+    });
+  }
+  else{
+    var profile = document.querySelector('.login-popup');
+    document.querySelector('#login-btn').addEventListener("click", function(){
+      profile.classList.toggle('active');
+      navbar.classList.remove('active');
+      searchForm.classList.remove('active');
+    });
+  }
+  
 
   window.onscroll = function() {
       searchForm.classList.remove('active');

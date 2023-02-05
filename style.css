@@ -48,7 +48,7 @@ body{
     z-index: 30000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 2rem 9%;
     background: #fff;
 }
@@ -171,9 +171,14 @@ body{
 .header .search-form label:hover{
     color: green;
 }
-
 /* Profile Pop-up */
 .header .profile-popup{
+  position: absolute;
+  top: 110%;
+  margin-left: 1rem;
+}
+/* Profile Pop-up */
+.header .profile-popup, .header .login-popup{
   position: absolute;
   top: 110%;
   right: -110%;
@@ -183,7 +188,7 @@ body{
   background: #fff;
 }
 
-.header .profile-popup.active{
+.header .profile-popup.active, .header .login-popup.active{
   right: 2rem;
   transition: 0.4s linear;
 }
@@ -208,20 +213,20 @@ body{
   display: block;
 }
 
-.header .profile-popup .profile-content lottie-player{
+.header .profile-popup .profile-content lottie-player, .header .login-popup .profile-content lottie-player{
   margin-left: 1rem;
 }
 
 /* Login Pop-up */
 
-.header .profile-popup .login{
+.header .login-popup .login{
   display: flex;
   align-items: center;
   margin-left: 2;
   padding: 2rem 2rem;
 }
 
-.header .profile-popup .login a{
+.header .login-popup .login a{
   font-size: 2rem;
   margin-left: -5rem;
   display: block;
@@ -233,7 +238,7 @@ body{
   padding: 10px 20px;
 }
 
-.header .profile-popup .login a button{
+.header .login-popup .login a button{
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
