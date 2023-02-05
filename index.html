@@ -14,6 +14,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
     crossorigin="anonymous" /> -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
 <body>
@@ -31,9 +32,18 @@
             <a href="cart.html">
                 <div class="fas fa-shopping-cart" id="cart-btn"></div>
             </a>
-            <a href="login.html">
-                <div class="fas fa-user" id="login-btn"></div>
-            </a>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+        <div class="profile-popup">
+            <div class="profile-name">
+                <h2> John </h2>
+            </div>
+            <div class="profile-content">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_klurhj0n.json"  background="transparent"  speed="0.5"  style="width: 100px; height: 100px;"  loop  autoplay></lottie-player>          
+                <h4>100 Bakers Street</h4>
+                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_trr378cy.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop  autoplay></lottie-player>
+                <h4> 120 coins </h4>
+            </div>
         </div>
         <form action="" class="search-form">
             <input type="search" id="search-box" placeholder="search here...">

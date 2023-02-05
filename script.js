@@ -11,6 +11,11 @@ $(document).ready(function(){
       searchForm.classList.remove('active');
   });
 
+  var login = document.querySelector('.profile-popup');
+  document.querySelector('#login-btn').addEventListener("click", function(){
+    login.classList.toggle('active');
+  });
+
   window.onscroll = function() {
       searchForm.classList.remove('active');
       navbar.classList.remove('active');
