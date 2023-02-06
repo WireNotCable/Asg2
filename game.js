@@ -73,8 +73,7 @@ function addHearts(){
 
 //start sending fruits
 
-function startAction(){
-    
+function startAction(points){
     
     //generate a fruit
     $("#fruit1").show();
@@ -119,6 +118,39 @@ function startAction(){
                 $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
                 $("#trialsLeft").hide();
                 stopAction();
+
+                // if (score >= 20){
+                //     coins = Math.floor(points/20);
+                //     var name = JSON.parse(localStorage.getItem("user"))
+                //     var settings = {
+                //         "async": true,
+                //         "crossDomain": true,
+                //         "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
+                //         "method": "GET",
+                //         "headers": {
+                //         "content-type": "application/json",
+                //         "x-apikey": APIKEY,
+                //         "cache-control": "no-cache"
+                //         },
+                //     }
+                //     $.ajax(settings).done(function (response){
+                //         newPoints = response[0].points + coins
+                //         console.log(newPoints)
+                //         jsondata = {
+                //             username : response[0].username,
+                //             email : response[0].email,
+                //             password : response[0].password,
+                //             points : newPoints,
+                //             address : response[0].address,
+                //             dob : response[0].dob,
+                //         }
+                //         $("#startreset").html("Start Game"); // change button to Start Game
+                //         $("#gameOver").show();
+                //         $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
+                //         $("#trialsLeft").hide();
+                //         stopAction();
+                //     })
+                // }
             }
         }
     }, 10);

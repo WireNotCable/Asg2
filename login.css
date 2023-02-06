@@ -189,7 +189,9 @@ section .container.active .signinBx .imgBx
     font-size: 9px;
     height: 13px;
 }
-
+#sent{
+    display: none;
+}
 @media (max-width: 991px)
 {
     section .container{
