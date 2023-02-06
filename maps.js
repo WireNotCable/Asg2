@@ -1,55 +1,26 @@
-let map, searchManager;
-let apiKey1 = "AoikwZupOMBoYuMeQAhczv5lIbxfubsseUobK8QlRbAdl3LdX2ZrGd0gOm2AmFdN";
-let apiKey2 = "Avccz85Vw29puwTVhAPck97RhHVtKwmYyK-mU6YG5UNNQqA7Q0F4ZGXjIGWuRy09";
+let map
 
-function getMap(){
-    map = new Microsoft.Maps.Map('#map', {
-    credentials: apiKey1
+function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 11,
+      center: {lat: 1.3521, lng: 103.8198}
     });
 
-    var location_1 = new Microsoft.Maps.Location(1.3295141648280284, 103.67755912597347)
-
-    var pin_1 = new Microsoft.Maps.Pushpin(location_1, {
-        title: 'Shop'
+    var marker_1 = new google.maps.Marker({
+      position: {lat: 1.3285453551053334, lng: 103.67846281115466},
+      map: map,
+      title: 'Shop'
     });
-    map.entities.push(pin_1);
 
-    var location_2 = new Microsoft.Maps.Location(1.2996485152337425, 103.80396932929241)
-
-    var pin_2 = new Microsoft.Maps.Pushpin(location_2, {
-        title: 'Shop'
+    var marker_2 = new google.maps.Marker({
+      position: {lat: 1.324082763178704, lng: 103.80992252206674},
+      map: map,
+      title: 'Shop'
     });
-    map.entities.push(pin_2);
 
-    var location_3 = new Microsoft.Maps.Location(1.3717093159107367, 103.84839598153981)
-
-    var pin_3 = new Microsoft.Maps.Pushpin(location_3, {
-        title: 'Shop'
+    var marker_3 = new google.maps.Marker({
+      position: {lat: 1.3714634473719869, lng: 103.8470701533297},
+      map: map,
+      title: 'Shop'
     });
-    map.entities.push(pin_3);
-
-    map = new Microsoft.Maps.Map('#map', {
-        credentials: apiKey2
-        });
-    
-        var location_1 = new Microsoft.Maps.Location(1.3295141648280284, 103.67755912597347)
-    
-        var pin_1 = new Microsoft.Maps.Pushpin(location_1, {
-            title: 'Shop'
-        });
-        map.entities.push(pin_1);
-    
-        var location_2 = new Microsoft.Maps.Location(1.2996485152337425, 103.80396932929241)
-    
-        var pin_2 = new Microsoft.Maps.Pushpin(location_2, {
-            title: 'Shop'
-        });
-        map.entities.push(pin_2);
-    
-        var location_3 = new Microsoft.Maps.Location(1.3717093159107367, 103.84839598153981)
-    
-        var pin_3 = new Microsoft.Maps.Pushpin(location_3, {
-            title: 'Shop'
-        });
-        map.entities.push(pin_3);
-};
+  }

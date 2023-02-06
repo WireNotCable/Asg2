@@ -8,7 +8,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="maps.js"></script>
     <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
-    <script src='http://www.bing.com/api/maps/mapcontrol?callback=getMap' async></script>
     <link rel="stylesheet" type='text/css' media='screen' href='about-us.css'>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -75,7 +74,7 @@
         <!-- Map API -->
         <main>
             <h3>Locate Us</h3>
-            <div id="map"></div>
+            <div id="map" style="width: 100%; height: 400px;">
 
             <!-- Contact us form -->
         </main>
@@ -97,6 +96,8 @@
         </div>
     </section>
 
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYAgWWtVuZj2stVzL0OwvAzPDfpqr93lM&callback=initMap"></script>
     <script src="script.js" defer></script>
 </body>
 

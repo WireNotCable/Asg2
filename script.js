@@ -71,8 +71,29 @@ $(document).ready(function(){
         });
     }
   }
+
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-box");
+const searchResults = document.getElementById("search-results");
+
+searchBtn.addEventListener("click", function () {
+  const searchTerm = searchInput.value.toLowerCase();
+  searchResults.innerHTML = "";
+  let storedData = JSON.parse(localStorage.getItem("data"));
   
-  
+  if (!storedData) {
+    alert("No data found in local storage");
+    return;
+  }
+
+  storedData.forEach(function (item) {
+    if (item.toLowerCase().includes(searchTerm)) {
+      let resultItem = document.createElement("li");
+      resultItem.textContent = item;
+      searchResults.appendChild(resultItem);
+    }
+  });
+});
   
   let slides = document.querySelectorAll('.home .slides-container .slide');
   let index = 0;
@@ -87,4 +108,4 @@ $(document).ready(function(){
     slides[index].classList.remove('active');
     index = (index - 1 + slides.length) % slides.length;
     slides[index].classList.add('active');
-  }
+  } 
