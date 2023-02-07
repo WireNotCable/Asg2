@@ -1,42 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-
-/* Search bar */
-.header .search-form{
-    position: absolute;
-    top:110%; 
-    right:-110%;
-    width: 50rem;
-    height: 5rem;
-    background: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
-.header .search-form.active{
-    right: 2rem;
-    transition: 0.4s linear;
-}
-.header .search-form input{
-    height:100%;
-    width:100%;
-    background: none;
-    text-transform: none;
-    font-size: 1.6rem;
-    color: var(--black);
-    padding: 0 1.5rem;
-}
-.header .search-form label{
-    font-size: 2.2rem;
-    padding-right: 1.5rem;
-    color: var(--black);
-    cursor: pointer;
-}
-.header .search-form label:hover{
-    color: green;
-}
-
 /* heading */
 .heading {
     background: url(../images/heading-bg.jpg) no-repeat;
@@ -72,7 +35,7 @@
 /* Filter  */
 .filter-btns{
   top: 84px;
-  position: fixed;
+  position: absolute;
   z-index: 50000;
   background-color: #fff;
   box-shadow: var(--box-shadow);

@@ -45,7 +45,7 @@ body{
     top:0;
     left:0;
     right:0;
-    z-index: 30000;
+    z-index: 60000;
     display: flex;
     align-items: center;
     justify-content:space-between;
@@ -100,6 +100,7 @@ body{
     display: flex;
     align-items: center;
     box-shadow: var(--box-shadow);
+    z-index: 10000000000;
 }
 .header .search-form.active{
     right: 2rem;
@@ -119,6 +120,7 @@ body{
     padding-right: 1.5rem;
     color: var(--black);
     cursor: pointer;
+    background: #fff;
 }
 .header .search-form button:hover{
     color: green;

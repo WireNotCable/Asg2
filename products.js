@@ -1,13 +1,13 @@
 
 $(document).ready(function(){
-      const APIKEY = "63d670813bc6b255ed0c43ff";  
-      // const APIKEY = "63de1cc23bc6b255ed0c463a";
+      // const APIKEY = "63d670813bc6b255ed0c43ff";  
+      const APIKEY = "63de1cc23bc6b255ed0c463a";
 
       // All products
       var settings = {
           "async": true,
           "crossDomain": true,
-          "url": "https://idasg2-ba66.restdb.io/rest/products",
+          "url": "https://idasg2-bd89.restdb.io/rest/products",
           "method": "GET",
           "headers": {
               "content-type": "application/json",
@@ -19,12 +19,13 @@ $(document).ready(function(){
       $.ajax(settings).done(function(response){
           var searchValue = localStorage.getItem("searchValue");
           for(var i=0; i < response.length; i++){
+            if (localStorage.getItem("searchValue") == null){
+              var searchValue = ''
+            }
             if(response[i].itemName.toLowerCase().includes(searchValue.toLowerCase())){
               content = `<div class="box">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
-                <button class="fas fa-heart"></button>
-                <button class="fas fa-eye"></button>
               </div>
               <div class="image">
                 <img class="imageLink" src="${response[i].imageName}" alt="">
@@ -65,7 +66,7 @@ $(document).ready(function(){
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": `https://idasg2-ba66.restdb.io/rest/products?q={"category":"${id}"}`,
+          "url": `https://idasg2-bd89.restdb.io/rest/products?q={"category":"${id}"}`,
           "method": "GET",
           "headers": {
               "content-type": "application/json",
@@ -79,8 +80,6 @@ $(document).ready(function(){
           content = `<div class="box">
           <div class="icons">
             <button class="fas fa-shopping-cart"></button>
-            <button class="fas fa-heart"></button>
-            <button class="fas fa-eye"></button>
           </div>
           <div class="image">
             <img class="imageLink" src="${response[i].imageName}" alt="">
