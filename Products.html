@@ -10,6 +10,7 @@
     src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AjWXG6jbiO7ACveVM5dB5CgfG6TLvWbxIDu9fX7zYwZxwMcCgOqfM91-hnq4_Oix'
     async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="lottie-loading.js"></script>
   <script src="script.js" defer></script>
   <script src="products.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -17,6 +18,9 @@
 </head>
 
 <body>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <lottie-player id="lp-loading" src="https://assets6.lottiefiles.com/private_files/lf30_qc59a1iw.json"
+    background="transparent" speed="1" style="width: 100vw; height: 100vh;" loop autoplay></lottie-player>
   <header class="header">
     <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
     <nav class="navbar">
@@ -39,7 +43,12 @@
       <label for="search-box" class="fas fa-search"></label>
     </form>
   </header>
-
+  <div class="filter-btns">
+    <button type="button" class="filter-btn" id="Bakery">Bakery</button>
+    <button type="button" class="filter-btn" id="BPC">Beauty & Personal Care</button>
+    <button type="button" class="filter-btn" id="Drinks">Drinks</button>
+    <button type="button" class="filter-btn" id="FV">Fruits & Vegetables</button>
+  </div>
 
   <div class="heading">
     <h1>our shop</h1>

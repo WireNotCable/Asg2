@@ -26,6 +26,17 @@ html{
     scroll-behavior: smooth;
     scroll-padding-top: 7rem;
 }
+/* Lottie animation */
+#lp-loading, #sent {
+  background: rgba(10, 0, 0, 0.25);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2147483647;
+}
+/* Lottie end */
 body{
     background:#eee;
 }
@@ -34,13 +45,12 @@ body{
     top:0;
     left:0;
     right:0;
-    z-index: 1000;
+    z-index: 30000;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
     padding: 2rem 9%;
     background: #fff;
-    box-shadow: var(--box-shadow);
 }
 .header .logo{
     font-size: 2.5rem;
@@ -113,9 +123,14 @@ body{
 .header .search-form button:hover{
     color: green;
 }
-
 /* Profile Pop-up */
 .header .profile-popup{
+  position: absolute;
+  top: 110%;
+  margin-left: 1rem;
+}
+/* Profile Pop-up */
+.header .profile-popup, .header .login-popup{
   position: absolute;
   top: 110%;
   right: -110%;
@@ -125,7 +140,7 @@ body{
   background: #fff;
 }
 
-.header .profile-popup.active{
+.header .profile-popup.active, .header .login-popup.active{
   right: 2rem;
   transition: 0.4s linear;
 }
@@ -150,20 +165,20 @@ body{
   display: block;
 }
 
-.header .profile-popup .profile-content lottie-player{
+.header .profile-popup .profile-content lottie-player, .header .login-popup .profile-content lottie-player{
   margin-left: 1rem;
 }
 
 /* Login Pop-up */
 
-.header .profile-popup .login{
+.header .login-popup .login{
   display: flex;
   align-items: center;
   margin-left: 2;
   padding: 2rem 2rem;
 }
 
-.header .profile-popup .login a{
+.header .login-popup .login a{
   font-size: 2rem;
   margin-left: -5rem;
   display: block;
@@ -175,7 +190,7 @@ body{
   padding: 10px 20px;
 }
 
-.header .profile-popup .login a button{
+.header .login-popup .login a button{
   padding: 10px 20px;
   background-color: #4CAF50;
   color: white;
@@ -189,6 +204,10 @@ body{
 @media (max-width:991px){
     html{
         font-size: 55%;
+        z-index: 30000;
+    }
+    .filter-btns{
+      top: 75px;
     }
     .header{
         padding: 2rem;
@@ -197,6 +216,7 @@ body{
 @media (max-width:768px){
     #menu-btn{
         display: inline-block;
+        z-index: 30000;
     }
     .header .search-form{
         width: 90%;
@@ -627,10 +647,13 @@ body{
     }
 }
 @media (max-width:450px){
-    html{
-        font-size: 50%;
+  .filter-btns{
+    top: 68px;
+  }
+  html{
+      font-size: 50%;
+  }
+  .home .slides-container .slide .content h3 {
+      font-size: 5rem;
     }
-    .home .slides-container .slide .content h3 {
-        font-size: 5rem;
-      }
 }

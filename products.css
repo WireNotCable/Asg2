@@ -1,82 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-:root{
-    --orange:#ff7800;
-    --black:#130f40;
-    --light-color:#666;
-    --box-shadow:0 0.5rem 1rem rgba(0,0,0,0.1);
-    --border:0.2rem solid rgba(0,0,0,0.1);
-    --outline:0.1rem solid rgba(0,0,0,0.1);
-    --outine-hover:0.2rem solid var(--black);
-}
-*{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    text-transform: capitalize;
-    transition: all .2s linear;
-    text-decoration: none;
-}
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
-}
-body{
-    background:#eee;
-}
-
-.header{
-    position: fixed;
-    top:0;
-    left:0;
-    right:0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 9%;
-    background: #fff;
-    box-shadow: var(--box-shadow);
-}
-.header .logo{
-    font-size: 2.5rem;
-    font-weight: bolder;
-    color:var(--black)
-}
-.header .logo i{
-    color:green;
-}
-.header .navbar a{
-    font-size: 1.7rem;
-    margin: 0 1rem;
-    color: var(--black);
-}
-.header .navbar a:hover{
-    color:green;
-}
-.header .icons div {
-    height: 4.5rem;
-    width: 4.5rem;
-    line-height: 4.5rem;
-    border-radius: 0.5rem;
-    background: #eee;
-    color: var(--black);
-    font-size: 2rem;
-    margin-left: 0.3rem;
-    text-align: center;
-}
-.header .icons div:hover{
-    background: green;
-    color: #fff;
-}
-#menu-btn{
-    display: none;
-}
 
 /* Search bar */
 .header .search-form{
@@ -90,7 +13,6 @@ body{
     overflow: hidden;
     display: flex;
     align-items: center;
-    box-shadow: var(--box-shadow);
 }
 .header .search-form.active{
     right: 2rem;
@@ -123,6 +45,7 @@ body{
     text-align: center;
     padding-top: 12rem;
     padding-bottom: 8rem;
+    margin-top: 100px;
   }
   
   .heading h1 {
@@ -145,6 +68,56 @@ body{
     color: green;
   }
 /* heading */
+
+/* Filter  */
+.filter-btns{
+  top: 84px;
+  position: fixed;
+  z-index: 50000;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  width: 100vw;
+}
+.filter-btn{
+  background: none;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  text-transform: uppercase;
+  display: inline-block;
+  margin: 10px 30px;
+  font-size: 13px;
+  color: #a8a8a8;
+  font-weight: 600;
+  letter-spacing: 2px;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.filter-btn::after{
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 2px;
+  width: 0;
+  background-color: #555;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out
+}
+.filter-btn:hover{
+  color: #555;
+}
+.filter-btn:hover::after{
+  width: 100%;
+}
+/* Filter end */
 
 /* Title of products section */
 .title {
@@ -347,6 +320,9 @@ body{
     left: auto;
     right: 8rem;
   }
+  .filter-btns{
+    margin-top: -10px;
+  }
 }
 @media (max-width:768px){
     #menu-btn{
@@ -360,7 +336,6 @@ body{
         top: 110%;
         right: -110%;
         width: 30rem;
-        box-shadow: var(--box-shadow);
         border-radius: 0.5rem;
         background: #fff;
     }
