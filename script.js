@@ -60,18 +60,12 @@ $(document).ready(function(){
 });
 
 $("#search-logo").on("click", function(e){
-  console.log("hello")
   e.preventDefault();
 
   var searchInput = $("#search-input").val();
-  console.log(searchInput);
-  console.log("hi");
   localStorage.setItem("searchValue", searchInput);
-  window.location.href = "/Products.html";
+  window.location.href = "Products.html";
 });
-
-
-
 
   $('.navbar-toggler').click(function(){
     $('.navbar-collapse').slideToggle(300);
