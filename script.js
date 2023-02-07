@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  // search bar clicked
   var searchForm = document.querySelector(".search-form");
   document.querySelector('#search-btn').addEventListener("click", function(){
       searchForm.classList.toggle('active');
@@ -6,6 +7,7 @@ $(document).ready(function(){
       profile.classList.remove('active');
   });
 
+  // hamburger for responsive
   var navbar = document.querySelector('.navbar');
   document.querySelector('#menu-btn').addEventListener("click", function(){
       navbar.classList.toggle('active');
@@ -59,10 +61,11 @@ $(document).ready(function(){
 
 });
 
+
 $("#search-logo").on("click", function(e){
   e.preventDefault();
 
-  var searchInput = $("#search-input").val();
+  searchInput = $("#search-input").val();
   localStorage.setItem("searchValue", searchInput);
   window.location.href = "Products.html";
 });
