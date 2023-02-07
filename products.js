@@ -2,7 +2,7 @@
 $(document).ready(function(){
       // const APIKEY = "63d670813bc6b255ed0c43ff";  
       const APIKEY = "63de1cc23bc6b255ed0c463a";
-
+      
       // All products
       var settings = {
           "async": true,
@@ -23,7 +23,7 @@ $(document).ready(function(){
               var searchValue = ''
             }
             if(response[i].itemName.toLowerCase().includes(searchValue.toLowerCase())){
-              content = `<div class="box">
+              content = `<div class="box" id="${response[i].itemName}">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
               </div>

@@ -10,17 +10,18 @@
     src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AjWXG6jbiO7ACveVM5dB5CgfG6TLvWbxIDu9fX7zYwZxwMcCgOqfM91-hnq4_Oix'
     async defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="lottie-loading.js"></script>
-  <script src="script.js" defer></script>
   <script src="products.js"></script>
+  <script src="script.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="products.css">
 </head>
 
 <body>
-  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <lottie-player id="lp-loading" src="https://assets6.lottiefiles.com/private_files/lf30_qc59a1iw.json"
     background="transparent" speed="1" style="width: 100vw; height: 100vh;" loop autoplay></lottie-player>
+  <!-- Navigation bar -->
   <header class="header">
     <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
     <nav class="navbar">
@@ -34,18 +35,45 @@
       <a href="cart.html">
         <div class="fas fa-shopping-cart" id="cart-btn"></div>
       </a>
-      <a href="login.html">
-        <div class="fas fa-user" id="login"></div>
-      </a>
+      <div class="fas fa-user" id="login-btn"></div>
     </div>
+    <!-- Profile Pop-up -->
+    <div class="profile-popup">
+      <div class="profile-name">
+        <h2 id="profile-name"></h2>
+      </div>
+      <div class="profile-content">
+        <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_klurhj0n.json" background="transparent"
+          speed="0.5" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+        <h4 id="profile-address"></h4>
+        <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_trr378cy.json" background="transparent"
+          speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+        <h4 id="profile-coins"></h4>
+      </div>
+    </div>
+
+
+    <!-- Login Pop-up -->
+    <div class="login-popup">
+      <div class="login">
+        <lottie-player src="https://assets3.lottiefiles.com/datafiles/9Nu3WJLydErNDKf/data.json"
+          background="transparent" speed="0.5" style="width: 200px; height: 200px;" loop autoplay></lottie-player>
+        <a href="login.html">Log in</a>
+      </div>
+    </div>
+
     <form class="search-form">
       <input id="search-input" type="text" placeholder="search here...">
       <button id="search-logo" for="search-input" class="fas fa-search"></button>
     </form>
+
   </header>
+
+  <!-- Filter Categories -->
   <div class="filter-btns">
     <button type="button" class="filter-btn" id="Bakery">Bakery</button>
     <button type="button" class="filter-btn" id="BPC">Beauty & Personal Care</button>
+    <button type="button" class="filter-btn" id="DCE">Dairy,Chilled & Eggs</button>
     <button type="button" class="filter-btn" id="Drinks">Drinks</button>
     <button type="button" class="filter-btn" id="FV">Fruits & Vegetables</button>
   </div>
@@ -57,7 +85,7 @@
 
   <section class="products">
 
-    <h1 class="title"> our <span>products</span> <a href="#">view all >></a> </h1>
+    <h1 class="title"> our <span>products</span> <a href="Products.html">view all >></a> </h1>
 
     <div class="box-container products-container">
     </div>
@@ -111,6 +139,9 @@
 
   </section>
   <!-- footer section ends -->
+
+
+
 
 
 </body>
