@@ -24,7 +24,20 @@ $(document).ready(function(){
       searchForm.classList.remove('active');
       navbar.classList.remove('active');
   }
+
 });
+
+$("#search-logo").on("click", function(e){
+  console.log("hello")
+  e.preventDefault();
+
+  var searchInput = $("#search-input").val();
+  console.log(searchInput);
+  console.log("hi");
+  localStorage.setItem("searchValue", searchInput);
+  window.location.href = "/Products.html";
+});
+
 
 
 
@@ -72,28 +85,6 @@ $(document).ready(function(){
     }
   }
 
-const searchInput = document.getElementById("search-input");
-const searchBtn = document.getElementById("search-box");
-const searchResults = document.getElementById("search-results");
-
-searchBtn.addEventListener("click", function () {
-  const searchTerm = searchInput.value.toLowerCase();
-  searchResults.innerHTML = "";
-  let storedData = JSON.parse(localStorage.getItem("data"));
-  
-  if (!storedData) {
-    alert("No data found in local storage");
-    return;
-  }
-
-  storedData.forEach(function (item) {
-    if (item.toLowerCase().includes(searchTerm)) {
-      let resultItem = document.createElement("li");
-      resultItem.textContent = item;
-      searchResults.appendChild(resultItem);
-    }
-  });
-});
   
   let slides = document.querySelectorAll('.home .slides-container .slide');
   let index = 0;

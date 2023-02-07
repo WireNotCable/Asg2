@@ -16,7 +16,9 @@ $(document).ready(function(){
       }
       let content = "";
       $.ajax(settings).done(function(response){
+          var searchValue = localStorage.getItem("searchValue");
           for(var i=0; i < response.length; i++){
+            if(response[i].itemName.toLowerCase().includes(searchValue.toLowerCase())){
               content = `<div class="box">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
@@ -40,6 +42,8 @@ $(document).ready(function(){
             </div>`
             $(".products-container").append(content);
           }
+          window.localStorage.setItem('searchValue', '');
+        }
 
           // event listener for add to cart
           var addToCartButtons = document.querySelectorAll(".fa-shopping-cart")
@@ -76,6 +80,20 @@ $(document).ready(function(){
                 this.imageSrc = imageSrc;
                 this.quantity = quantity;
             }
+
+        
+            $("#searchQueryInput").on("input",(e)=>{ //search function
+              var productList = document.getElementsByClassName("product")
+              for(let i = 0; i<productList.length;i++){
+                let name = ($(".update")[i].dataset.name).toLowerCase()
+                  if(!name.includes(e.target.value.toLowerCase())){
+                    productList[i].style.display = "none";
+                  }
+                  else{
+                    productList[i].style.display = "block"
+                  }
+              }
+            })
 
         })
       }) 
