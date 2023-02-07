@@ -6,6 +6,7 @@ var step;
 var action; //used for setInterval
 var fruits = ['apple', 'lemon', 'mango', 'peach'];
 $(function(){
+    alert("Goal : Slice as many fruits as you can by hovering over fruits/pressing on it. Reward : You get 1🪙 for every 20 points you score in a single round")
     
 //click on start reset button
     
