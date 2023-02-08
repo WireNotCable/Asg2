@@ -98,7 +98,7 @@ $(document).ready(function(){
                   player.style.display = "none";
                   alert("Login successful.");
                   localStorage.setItem("user", JSON.stringify(response[0].username));
-                  window.location.assign("index.html"); //auto go back to home page
+                  window.location.assign("/index.html"); //auto go back to home page
                 });
           }
         });  

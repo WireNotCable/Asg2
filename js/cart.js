@@ -31,7 +31,7 @@ $(document).ready(function(){
       let values = [];
       for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if (key != "user"){
+        if (key != "user" && key!="searchValue"){
           let value = JSON.parse(localStorage.getItem(key));
           values.push({ key, value });
   
