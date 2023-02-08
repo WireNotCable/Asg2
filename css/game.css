@@ -55,7 +55,7 @@ body{
 #fruitsContainer{
     width: 100vw;
     height: 100vh;
-    background-image: url(images/background3.gif);
+    background-image: url(../images/background3.gif);
     opacity: 0.9;
     box-shadow: 0px 4px #535aa8;
     -moz-box-shadow: 0px 4px #535aa8;
