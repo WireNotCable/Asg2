@@ -23,7 +23,9 @@ $(document).ready(function(){
         creditCardCheckmark.classList.remove('fill')
     });
 
-
+    if (localStorage.getItem("user") == null){
+      alert("You need to sign in to use cart")
+    }
 
     // local storage
     function getAndParseAllLocalStorage() {
