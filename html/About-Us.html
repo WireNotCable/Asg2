@@ -6,16 +6,22 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>About Us</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script src="maps.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/621175abe2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type='text/css' media='screen' href='about-us.css'>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href='../css/about-us.css'>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYAgWWtVuZj2stVzL0OwvAzPDfpqr93lM&callback=initMap"
+        defer></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/about-us.js"></script>
 </head>
 
 <body>
     <!-- Navigation bar -->
     <header class="header">
-        <a href="index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
+        <a href="../index.html" class="logo"><i class="fas fa-shopping-basket"></i>Grocery</a>
         <nav class="navbar">
             <a href="Products.html">Products</a>
             <a href="About-Us.html">About Us</a>
@@ -27,16 +33,39 @@
             <a href="cart.html">
                 <div class="fas fa-shopping-cart" id="cart-btn"></div>
             </a>
-            <a href="login.html">
-                <div class="fas fa-user" id="login-btn"></div>
-            </a>
+            <div class="fas fa-user" id="login-btn"></div>
         </div>
-        <form action="" class="search-form">
-            <input type="search" id="search-box" placeholder="search here...">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-    </header>
+        <!-- Profile Pop-up -->
+        <div class="profile-popup">
+            <div class="profile-name">
+                <h2 id="profile-name"></h2>
+            </div>
+            <div class="profile-content">
+                <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_klurhj0n.json"
+                    background="transparent" speed="0.5" style="width: 70px; height: 70px;" loop
+                    autoplay></lottie-player>
+                <h4 id="profile-address"></h4>
+                <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_trr378cy.json"
+                    background="transparent" speed="1" style="width: 70px; height: 70px;" loop autoplay></lottie-player>
+                <h4 id="profile-coins"></h4>
+            </div>
+        </div>
+        <!-- Login Pop-up -->
+        <div class="login-popup">
+            <div class="login">
+                <lottie-player src="https://assets3.lottiefiles.com/datafiles/9Nu3WJLydErNDKf/data.json"
+                    background="transparent" speed="0.5" style="width: 200px; height: 200px;" loop
+                    autoplay></lottie-player>
+                <a href="login.html">Log in</a>
+            </div>
+        </div>
 
+        <form class="search-form">
+            <input id="search-input" type="text" placeholder="search here...">
+            <button id="search-logo" for="search-input" class="fas fa-search"></button>
+        </form>
+
+    </header>
 
     <!-- Banner -->
     <div class="heading">
@@ -75,9 +104,8 @@
         <main>
             <h3>Locate Us</h3>
             <div id="map" style="width: 100%; height: 400px;">
-
-            <!-- Contact us form -->
         </main>
+        <!-- Contact us form -->
         <div class="row">
             <form action="">
                 <h3>get in touch</h3>
@@ -94,11 +122,10 @@
 
             </form>
         </div>
+
     </section>
 
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYAgWWtVuZj2stVzL0OwvAzPDfpqr93lM&callback=initMap"></script>
-    <script src="script.js" defer></script>
+
 </body>
 
 </html>

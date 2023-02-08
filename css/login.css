@@ -192,6 +192,9 @@ section .container.active .signinBx .imgBx
 #sent{
     display: none;
 }
+#submit-log-in{
+    display: none;
+}
 @media (max-width: 991px)
 {
     section .container{

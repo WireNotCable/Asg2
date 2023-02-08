@@ -1,4 +1,5 @@
-/*styling.css*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 html{
     height: 100%;;
     overflow-x: hidden;
@@ -7,23 +8,23 @@ html{
 body{
     margin: 0px;
 }
-
- /* #container{
-    height: 500px;
-    width: 100%;
-    background-color: #9DD2EA;
-    /* margin: 10px auto; 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 0px 0px #009de4;
-    -moz-box-shadow: 0px 4px 0px 0px #009de4;
-    -webkit-box-shadow: 0px 4px 0px 0px #009de4;
-    box-shadow: [horizontal offset] [vertical offset] [blur radius] [optional spread radius] [color];
-    position: relative;
-}  */
-
+#home-btn{
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    border-radius: 0.5rem;
+    background: #eee;
+    color: green;
+    font-size: 2rem;
+    margin-left: 0.3rem;
+    text-align: center;
+}
+#home-btn:hover{
+    color: #eee;
+    background: green;
+}
 #score{
-    position: absolute;
+    position: fixed;
     right: 0;
     background-color: #F1FF92;
     color: #888E5F;
@@ -33,8 +34,8 @@ body{
     -webkit-box-shadow: 0px 4px 0px #9da853;
     z-index: 1000;
     width : 10%;
+    font-family: 'Poppins', sans-serif;
 }
-
 #correct{
     position: absolute;
     left: 260px;
@@ -43,7 +44,6 @@ body{
     padding: 11px;
     display: none;
 }
-
 #wrong{
     position: absolute;
     left: 250px;
@@ -52,19 +52,17 @@ body{
     padding: 11px;
     display: none;
 }
-
 #fruitsContainer{
     width: 100vw;
     height: 100vh;
-    /* margin: 80px auto 10px auto; */
-    background-image: url(images/background3.gif);
+    background-image: url(../images/background3.gif);
     opacity: 0.9;
     box-shadow: 0px 4px #535aa8;
     -moz-box-shadow: 0px 4px #535aa8;
     -webkit-box-shadow: 0px 4px #535aa8;
     font-size: 100px;
     text-align: center;
-    font-family: cursive, sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: black;
     position: fixed;
     overflow: hidden;
@@ -98,14 +96,6 @@ body{
     -ms-transition: all 0.2s;
 }
 
-/* .box:hover, #startreset:hover{
-   background-color: #9C89F6;
- color: white;
-   box-shadow: 0px 4px #6b54d3;
-   -moz-box-shadow: 0px 4px #6b54d3;
--webkit-box-shadow: 0px 4px #6b54d3;
-} */
-
 .box:active, #startreset:active{
     background-color: #9C89F6;
     color: white;
@@ -134,19 +124,24 @@ body{
     -webkit-transition: all 0.2s;
     -moz-transition: all 0.2s;
     -o-transition: all 0.2s;
-    -ms-transition: all 0.2s;   
+    -ms-transition: all 0.2s; 
+    font-family: 'Poppins', sans-serif;
+  
 }
-
+#gameOver{
+    font-family: 'Poppins', sans-serif;
+}
 #trialsLeft{
+    right: 0;
     width: 80px;
+    top: 45px;
     padding: 10px;
-    position: absolute;
+    position: fixed;
     background-color: #F1FF92;
     border-radius: 3px;
     box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
     -webkit-box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
-/*    visibility: hidden;*/
     display: none;
 }
 
@@ -185,4 +180,14 @@ body{
 #fruit1 {
     opacity: 1 !important;
     z-index: 500;
+}
+@media (max-width:1200px){
+    #trialsLeft{
+        top: 50px;
+    }
+}
+@media (max-width:768px){
+    #trialsLeft{
+        top: 75px;
+    }
 }

@@ -10,14 +10,13 @@ body{
     overflow: hidden;
 }
 header{
-    text-align: center;
     width: 100vw;
     background-color: rgb(19, 140, 41);
     color: #fff;
     padding-top: 10px;
 }
 .heading{
-    background:url(images/heading-bg.jpg) no-repeat;
+    background:url(../images/heading-bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     text-align: center;

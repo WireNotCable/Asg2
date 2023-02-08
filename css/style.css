@@ -27,7 +27,7 @@ html{
     scroll-padding-top: 7rem;
 }
 /* Lottie animation */
-#lp-loading, #sent {
+#lp-loading, #sent, #submit-log-in {
   background: rgba(10, 0, 0, 0.25);
   height: 100vh;
   left: 0;
@@ -160,11 +160,13 @@ body{
   margin-left: 3rem;
   margin-bottom: -1.5rem;
   display: block;
+  color:black;
 }
 
 .header .profile-popup .profile-content h4{
   font-size: 1.5rem;
   display: block;
+  color:black;
 }
 
 .header .profile-popup .profile-content lottie-player, .header .login-popup .profile-content lottie-player{
@@ -302,7 +304,7 @@ body{
 
 .home {
     padding-top: 14rem;
-    background: url(images/home-bg.jpg) no-repeat;
+    background: url(../images/home-bg.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -328,6 +330,7 @@ body{
   }
   
   .home .slides-container .slide .content {
+    padding-left: 8%;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 40rem;
             flex: 1 1 40rem;
