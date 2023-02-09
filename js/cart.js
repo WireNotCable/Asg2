@@ -125,7 +125,6 @@ $(document).ready(function(){
           else{
             value.quantity -= 1
           }
-          console.log(key)
           localStorage.setItem(key, JSON.stringify(value));
           getPoints()
         }
@@ -181,7 +180,6 @@ $(document).ready(function(){
       }
       $.ajax(settings).done(function (response){
         point = parseFloat(response[0].points).toFixed(2)
-        console.log(points)
         updateTotal(point)
       }) 
     }
@@ -190,7 +188,9 @@ $(document).ready(function(){
     var button = document.querySelector("#makePaymentBtn")
     button.addEventListener('click', function(event){
       addPoints()
+      username = localStorage.getItem("user")
       localStorage.clear()
+      localStorage.setItem("user",username)
     })
     // Earn points after checkout
     function addPoints(){
@@ -209,10 +209,6 @@ $(document).ready(function(){
       $.ajax(settings).done(function (response){
         usedPoints = parseFloat(document.querySelector('#points').innerHTML)*100
         points = Math.round(parseFloat(document.querySelector('#total').innerHTML))
-        // console.log(points)
-        console.log(response[0].points)
-        console.log(usedPoints)
-        console.log(points)
         var newPoints = response[0].points + usedPoints + points
         var id = response[0]._id,
         jsondata = {
