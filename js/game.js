@@ -5,9 +5,7 @@ var trialsLeft;
 var step;
 var action; //used for setInterval
 var fruits = ['apple', 'lemon', 'mango', 'peach'];
-const APIKEY = "63d670813bc6b255ed0c43ff"
 $(function(){
-    alert("Goal : Slice as many fruits as you can by hovering over fruits/pressing on it. Reward : You get 1🪙 for every 20 points you score in a single round")
     
 //click on start reset button
     
@@ -75,13 +73,12 @@ function addHearts(){
 
 //start sending fruits
 
-function startAction(points){
+function startAction(){
     
     //generate a fruit
     $("#fruit1").show();
     chooseFruit(); //choose a random fruit
     var width = window.innerWidth;
-    console.log(width)
     $("#fruit1").css({'left' : Math.round((width-150)*Math.random()), 'top' : -50},); //random position
     
     //generate a random step
@@ -101,7 +98,6 @@ function startAction(points){
                 $("#fruit1").show();
                 chooseFruit(); //choose a random fruit
                 var width = window.innerWidth;
-                console.log(width)
                 $("#fruit1").css({'left' : Math.round((width-150)*Math.random()), 'top' : -50}); //random position
 
                 //generate a random step
@@ -120,15 +116,15 @@ function startAction(points){
                 $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
                 $("#trialsLeft").hide();
                 stopAction();
-
                 if (score >= 20){
-                    coins = Math.floor(score/20);
-                    console.log(coins);
+                    // const APIKEY = "63d670813bc6b255ed0c43ff";   
+                    const APIKEY = "63de1cc23bc6b255ed0c463a";
+
                     var name = JSON.parse(localStorage.getItem("user"))
                     var settings = {
                         "async": true,
                         "crossDomain": true,
-                        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
+                        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
                         "method": "GET",
                         "headers": {
                         "content-type": "application/json",
@@ -137,8 +133,8 @@ function startAction(points){
                         },
                     }
                     $.ajax(settings).done(function (response){
-                        newPoints = response[0].points + coins
-                        console.log(newPoints)
+                        coins = Math.floor(score/20);
+                        newPoints = parseInt(JSON.stringify(response[0].points)) + coins
                         jsondata = {
                             username : response[0].username,
                             email : response[0].email,
@@ -146,12 +142,23 @@ function startAction(points){
                             points : newPoints,
                             address : response[0].address,
                         }
-
-                        $("#startreset").html("Start Game"); // change button to Start Game
-                        $("#gameOver").show();
-                        $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
-                        $("#trialsLeft").hide();
-                        stopAction();
+                        var id = response[0]._id
+                        var settings = {
+                            "async": true,
+                            "crossDomain": true,
+                            "url": `https://idasg2-bd89.restdb.io/rest/signup/${id}`,
+                            "method": "PUT",
+                            "headers": {
+                                "content-type": "application/json",
+                                "x-apikey": APIKEY,
+                                "cache-control": "no-cache"
+                            },
+                            "processData": false,
+                            "data": JSON.stringify(jsondata),
+                        }
+                        $.ajax(settings).done(function (response){
+                            console.log("coins earned")
+                          }) 
                     })
                 }
             }
