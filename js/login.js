@@ -5,7 +5,9 @@ function toggleForm(){
   container.classList.toggle('active');
 }
 $(document).ready(function(){
-    const APIKEY = "63d670813bc6b255ed0c43ff";    
+    // const APIKEY = "63d670813bc6b255ed0c43ff"; 
+    const APIKEY = "63de1cc23bc6b255ed0c463a";
+   
     
     // Submit sign up form
     $("#signup-btn").on("click", function(e){
@@ -31,7 +33,7 @@ $(document).ready(function(){
               var settings = {
               "async": true,
               "crossDomain": true,
-              "url": "https://idasg2-ba66.restdb.io/rest/signup",
+              "url": "https://idasg2-bd89.restdb.io/rest/signup",
               "method": "POST",
               "headers": {
                   "content-type": "application/json",
@@ -73,7 +75,7 @@ $(document).ready(function(){
       var settings = {
           "async": true,
           "crossDomain": true,
-          "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${Username}"}`,
+          "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${Username}"}`,
           "method": "GET",
           "headers": {
             "content-type": "application/json",

@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  const APIKEY = "63d670813bc6b255ed0c43ff";  
-  // const APIKEY = "63de1cc23bc6b255ed0c463a";
+  // const APIKEY = "63d670813bc6b255ed0c43ff";  
+  const APIKEY = "63de1cc23bc6b255ed0c463a";
 
     // selecting of payment method
     var creditCardSelected = document.querySelector("#creditcard");
@@ -48,11 +48,11 @@ $(document).ready(function(){
                   <div class="wrapper">
                     <div class="product-qty">
                       <button id="decrement">
-                        <ion-icon name="remove-outline"></ion-icon>
+                        -
                       </button>
                       <span id="quantity">${value.quantity}</span>
                       <button id="increment">
-                        <ion-icon name="add-outline"></ion-icon>
+                        +
                       </button>
                     </div>
                     <div class="price">
@@ -96,9 +96,9 @@ $(document).ready(function(){
       var button = AddQuantityButtons[i]
       button.addEventListener('click', function(event){
         var buttonClicked = event.target
-        quantity = buttonClicked.parentElement.previousElementSibling.innerHTML
-        buttonClicked.parentElement.previousElementSibling.innerHTML = parseInt(quantity) + 1
-        key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
+        quantity = buttonClicked.previousElementSibling.innerHTML
+        buttonClicked.previousElementSibling.innerHTML = parseInt(quantity) + 1
+        key = buttonClicked.parentElement.parentElement.previousElementSibling.innerHTML
         let value = JSON.parse(localStorage.getItem(key));
         value.quantity += 1
         localStorage.setItem(key, JSON.stringify(value));
@@ -112,16 +112,20 @@ $(document).ready(function(){
       var button = MinusQuantityButtons[i]
       button.addEventListener('click', function(event){
         var buttonClicked = event.target
-        if (buttonClicked.parentElement.nextElementSibling.innerHTML != 0){
-          quantity = buttonClicked.parentElement.nextElementSibling.innerHTML
-          buttonClicked.parentElement.nextElementSibling.innerHTML = parseInt(quantity) - 1
-          key = buttonClicked.parentElement.parentElement.parentElement.previousElementSibling.innerHTML
+        if (buttonClicked.nextElementSibling.innerHTML != 0){
+          quantity = buttonClicked.nextElementSibling.innerHTML
+          buttonClicked.nextElementSibling.innerHTML = parseInt(quantity) - 1
+          key = buttonClicked.parentElement.parentElement.previousElementSibling.innerHTML
           let value = JSON.parse(localStorage.getItem(key));
-          value.quantity -= 1
-          if (value.quantity == 0 || parseInt(quantity)==0){
+          console.log(value.quantity)
+          if (value.quantity == 1 || parseInt(quantity)==1){
             value.quantity = 1
-            buttonClicked.parentElement.nextElementSibling.innerHTML = 1
+            buttonClicked.nextElementSibling.innerHTML = 1
           }
+          else{
+            value.quantity -= 1
+          }
+          console.log(key)
           localStorage.setItem(key, JSON.stringify(value));
           getPoints()
         }
@@ -160,14 +164,14 @@ $(document).ready(function(){
       document.querySelector('#payAmount').innerHTML = total.toFixed(2)
       }  
       
-    getPoints()
+      
     function getPoints(){
       var name = JSON.parse(localStorage.getItem("user"))
       // GET request
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
@@ -194,7 +198,7 @@ $(document).ready(function(){
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
@@ -223,7 +227,7 @@ $(document).ready(function(){
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": `https://idasg2-ba66.restdb.io/rest/signup/${id}`,
+          "url": `https://idasg2-bd89.restdb.io/rest/signup/${id}`,
           "method": "PUT",
           "headers": {
               "content-type": "application/json",
