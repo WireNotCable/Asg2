@@ -18,11 +18,13 @@ $(document).ready(function(){
       let content = "";
       $.ajax(settings).done(function(response){
           var searchValue = localStorage.getItem("searchValue");
+          var product_avail = false;
           for(var i=0; i < response.length; i++){
             if (localStorage.getItem("searchValue") == null){
               var searchValue = ''
             }
             if(response[i].itemName.toLowerCase().includes(searchValue.toLowerCase())){
+              product_avail = true;
               content = `<div class="box" id="${response[i].itemName}">
               <div class="icons">
                 <button class="fas fa-shopping-cart"></button>
@@ -45,6 +47,9 @@ $(document).ready(function(){
             $(".products-container").append(content);
           }
           window.localStorage.setItem('searchValue', '');
+        }
+        if(product_avail == false){
+          alert("Product not found!")
         }
           addToCart()
       })
