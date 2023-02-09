@@ -5,6 +5,7 @@ var trialsLeft;
 var step;
 var action; //used for setInterval
 var fruits = ['apple', 'lemon', 'mango', 'peach'];
+const APIKEY = "63d670813bc6b255ed0c43ff"
 $(function(){
     alert("Goal : Slice as many fruits as you can by hovering over fruits/pressing on it. Reward : You get 1🪙 for every 20 points you score in a single round")
     
@@ -121,7 +122,8 @@ function startAction(points){
                 stopAction();
 
                 if (score >= 20){
-                    coins = Math.floor(points/20);
+                    coins = Math.floor(score/20);
+                    console.log(coins);
                     var name = JSON.parse(localStorage.getItem("user"))
                     var settings = {
                         "async": true,
@@ -143,8 +145,8 @@ function startAction(points){
                             password : response[0].password,
                             points : newPoints,
                             address : response[0].address,
-                            dob : response[0].dob,
                         }
+
                         $("#startreset").html("Start Game"); // change button to Start Game
                         $("#gameOver").show();
                         $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');

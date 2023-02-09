@@ -25,14 +25,22 @@ Link to **Pitch**:
 ## Features
  
 ### Existing Features
-- View Products - To view available products in the store
-- Cart - To store products in a certain location before proceeding on to payment
-- Search - To search and find specific products using the name of a product or brand
-- Category - To filter out products based on category type for the ease of locating products
-- Locate us - To show the locations of our outlets so that customers can go and visit them
-- Sign in / Sign up - To creates accounts through which customers can experience offers and promotions
-- Coin / Point system  - To reward customers with accounts for using our services, by providing them coins (each equivalent to a cent) to use as part of their payment
-- Fruit slicing game - To play and earn rewards that will be credited into the points system based on points scored
+- View Products
+  > To view available products in the store
+- Cart
+  > To store products in a certain location before proceeding on to payment
+- Search
+  > To search and find specific products using the name of a product or brand
+- Category
+  > To filter out products based on category type for the ease of locating products
+- Locate us
+  > To show the locations of our outlets so that customers can visit them
+- Sign in / Sign up
+  > To creates accounts through which customers can experience offers and promotions
+- Coin / Point system
+  > To reward customers with accounts for using our services, by providing them coins (each equivalent to a cent) to use as part of their payment
+- Coin / Point system
+  > To play and earn rewards that will be credited into the points system based on points scored
 
 ### Features Left to Implement
 - Products liked
