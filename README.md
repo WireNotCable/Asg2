@@ -148,3 +148,4 @@ Link to **Extensive testing**: [Click here](https://docs.google.com/spreadsheets
 - We received inspiration for this project from [Mr. Web Designer](https://www.youtube.com/@MrWebDesignerAnas)
 - We received inspiration for the sign-in / sign-up page from [Online Tutorials](https://www.youtube.com/@OnlineTutorialsYT)
 - We received inspiration for the cart page from [codewithsadee](https://www.youtube.com/@codewithsadee)
+- We received inspiration for the slice game from [Udemy](https://nlbsg.udemy.com/course/complete-web-development-course/learn/lecture/3921036#overview) and Fruits Ninja
