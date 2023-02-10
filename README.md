@@ -53,6 +53,9 @@ Link to **Pitch**:
 ### Features Left to Implement
 - Products liked
 - Admin Page
+- Discounts & Offers
+- Newsletters
+- Feedback form
 
 ## Technologies Used
 
