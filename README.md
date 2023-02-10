@@ -109,7 +109,7 @@ Link to **Extensive testing**: [Click here](https://docs.google.com/spreadsheets
 
 ### Problems:
 - RESTDB.io has a limit for the no. of requests per day. Therefore, data might not load if the limit has exceeded.
-- Background might not fit properly on some devices depending on screen sizes.
+- Background of game might not fit properly on some devices depending on screen sizes.
 
 ## Credits
 
