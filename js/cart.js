@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  // const APIKEY = "63d670813bc6b255ed0c43ff";  
-  const APIKEY = "63de1cc23bc6b255ed0c463a";
+  const APIKEY = "63d670813bc6b255ed0c43ff";  
+  // const APIKEY = "63de1cc23bc6b255ed0c463a";
 
     // selecting of payment method
     var creditCardSelected = document.querySelector("#creditcard");
@@ -170,7 +170,7 @@ $(document).ready(function(){
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
