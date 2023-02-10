@@ -1,6 +1,6 @@
-# Soopermarket
+# Grocery
 
-Soopermarket is an ecommerce website that allows users to purchase groceries and essential products, from the comfort of their homes.
+Grocery is an ecommerce website that allows users to purchase groceries and essential products, from the comfort of their homes.
 
 **Site Deployment**: [Click here](https://wirenotcable.github.io/Asg2/)
  
@@ -17,7 +17,7 @@ We went with a 2D (2-Dimensional) Pixelated game as we felt that it would be eas
 - As a regular customer, I want to receive some kind of promotion or offer to reduce the cost of my purchases.
 
 ### Wireframe:
-Link to **Wireframe**:
+Link to **Wireframe**: [Click here](https://xd.adobe.com/view/fb8966fd-4990-4537-a5d4-e07558fe6d1a-aeda/)
 
 ### Pitch: 
 Link to **Pitch**:
@@ -76,8 +76,58 @@ Link to **Pitch**:
 
 ## Testing
 1. Signing up as a new user
+- Tried entering an invalid email address to check if the error message would appear
+- Tried entering passwords that did not match for the create password and confirm password sections of sign up form to check if the error message would appear
+
+2. Cart
+- Tried adding a product to the cart and then removing it to check if the cart would be updated accordingly
+- Tried adding a product to the cart and then changing the quantity to check if the cart would be updated accordingly
+- Tried the pay button to check if the cart would be cleared
+- Tried checking if the total price would be updated accordingly
+
+3. Point system
+- Tried checking if the total coins after signing up would be 100
+- Tried checking the total coins would be updated accordingly after a purchase is made
+- Tried checking the total coins would be updated accordingly after playing the fruit slicing game
+
+4. Fruit Slicing Game
+- Tried checking if the game would start when the play button is clicked
+- Tried checking if the score would update everytime a fruit is sliced
+- Tried checking if the game would end when the player runs out of lives
+Tried checking if the total coins would be updated accordingly after a score of >10 is obtained
+
+
+### Extensive testing (For each feature)
+Link to **Extensive testing**: [Click here](https://docs.google.com/spreadsheets/d/1VFQuwRBjnRbE1Mq0GdWLr-V5l51O4tmYuKnOBXyqfCU/edit?usp=sharing)
+
+### W3 Validator checks for HTML & CSS:
+- HTML checker produced 1 error
+- CSS checker produced 4 errors
 
 ## Credits
+
+### Contributions
+<details><summary>Xin Yin (Mainly Back-End)</summary>
+<p>
+
+- Database for user accounts and products
+- JavaScript for everything other than search bar & locate us 
+- HTML & CSS for sign-in / sign-up page 
+- Assisted Karthik with HTML & CSS
+
+</p>
+</details>
+
+<details><summary>Karthik (Mainly Front-End)</summary>
+<p>
+
+- HTML & CSS for everything other sign-in / sign-up page 
+- JavaScript for search bar & locate us
+- README.md
+- Assisted Xin Yin with JavaScript and Database
+
+</p>
+</details>
 
 ### Content
 - The names of products was copied from [Fairprice](https://www.fairprice.com.sg/)
@@ -88,4 +138,7 @@ Link to **Pitch**:
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I received inspiration for this project from [Fairprice](https://www.fairprice.com.sg/)
+- I received inspiration for this project from [Mr. Web Designer](https://www.youtube.com/@MrWebDesignerAnas)
+- I received inspiration for the sign-in / sign-up page from [Online Tutorials](https://www.youtube.com/@OnlineTutorialsYT)
+- I received inspiration for the cart page from [codewithsadee](https://www.youtube.com/@codewithsadee)
