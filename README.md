@@ -14,7 +14,7 @@ We went with a 2D (2-Dimensional) Pixelated game as we felt that it would be eas
 
 ### User Stories:
 - As a new customer, I want to be able to navigate through the website easily to find the products I am looking for.
-- As a regular customer, I want to receive some kind of promotion or offer to reduce the cost of my purchases.
+- As a regular customer, I want to receive promotions or offers to reduce the cost of my purchases.
 
 ### Wireframe:
 Link to **Wireframe**: [Click here](https://xd.adobe.com/view/fb8966fd-4990-4537-a5d4-e07558fe6d1a-aeda/)
@@ -76,25 +76,25 @@ Link to **Pitch**:
 
 ## Testing
 1. Signing up as a new user
-- Tried entering an invalid email address to check if the error message would appear
-- Tried entering passwords that did not match for the create password and confirm password sections of sign up form to check if the error message would appear
+  - Tried entering an invalid email address to check if the error message would appear
+  - Tried entering passwords that did not match for the create password and confirm password sections of sign up form to check if the error message would appear
 
 2. Cart
-- Tried adding a product to the cart and then removing it to check if the cart would be updated accordingly
-- Tried adding a product to the cart and then changing the quantity to check if the cart would be updated accordingly
-- Tried the pay button to check if the cart would be cleared
-- Tried checking if the total price would be updated accordingly
+  - Tried adding a product to the cart and then removing it to check if the cart would be updated accordingly
+  - Tried adding a product to the cart and then changing the quantity to check if the cart would be updated accordingly
+  - Tried the pay button to check if the cart would be cleared
+  - Tried checking if the total price would be updated accordingly
 
 3. Point system
-- Tried checking if the total coins after signing up would be 100
-- Tried checking the total coins would be updated accordingly after a purchase is made
-- Tried checking the total coins would be updated accordingly after playing the fruit slicing game
+  - Tried checking if the total coins after signing up would be 100
+  - Tried checking the total coins would be updated accordingly after a purchase is made
+  - Tried checking the total coins would be updated accordingly after playing the fruit slicing game
 
 4. Fruit Slicing Game
-- Tried checking if the game would start when the play button is clicked
-- Tried checking if the score would update everytime a fruit is sliced
-- Tried checking if the game would end when the player runs out of lives
-Tried checking if the total coins would be updated accordingly after a score of >10 is obtained
+  - Tried checking if the game would start when the play button is clicked
+  - Tried checking if the score would update everytime a fruit is sliced
+  - Tried checking if the game would end when the player runs out of lives
+  - Tried checking if the total coins would be updated accordingly after a score of >10 is obtained
 
 
 ### Extensive testing (For each feature)
@@ -137,8 +137,7 @@ Link to **Extensive testing**: [Click here](https://docs.google.com/spreadsheets
 - The images used for the fruits in the fruits slicing game were obtained from [Itch.io](https://itch.io/)
 
 ### Acknowledgements
-
-- I received inspiration for this project from [Fairprice](https://www.fairprice.com.sg/)
-- I received inspiration for this project from [Mr. Web Designer](https://www.youtube.com/@MrWebDesignerAnas)
-- I received inspiration for the sign-in / sign-up page from [Online Tutorials](https://www.youtube.com/@OnlineTutorialsYT)
-- I received inspiration for the cart page from [codewithsadee](https://www.youtube.com/@codewithsadee)
+- We received inspiration for this project from [Fairprice](https://www.fairprice.com.sg/)
+- We received inspiration for this project from [Mr. Web Designer](https://www.youtube.com/@MrWebDesignerAnas)
+- We received inspiration for the sign-in / sign-up page from [Online Tutorials](https://www.youtube.com/@OnlineTutorialsYT)
+- We received inspiration for the cart page from [codewithsadee](https://www.youtube.com/@codewithsadee)
