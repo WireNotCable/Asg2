@@ -198,7 +198,7 @@ $(document).ready(function(){
       var settings = {
         "async": true,
         "crossDomain": true,
-        "url": `https://idasg2-bd89.restdb.io/rest/signup?q={"username":"${name}"}`,
+        "url": `https://idasg2-ba66.restdb.io/rest/signup?q={"username":"${name}"}`,
         "method": "GET",
         "headers": {
           "content-type": "application/json",
@@ -223,7 +223,7 @@ $(document).ready(function(){
         var settings = {
           "async": true,
           "crossDomain": true,
-          "url": `https://idasg2-bd89.restdb.io/rest/signup/${id}`,
+          "url": `https://idasg2-ba66.restdb.io/rest/signup/${id}`,
           "method": "PUT",
           "headers": {
               "content-type": "application/json",
