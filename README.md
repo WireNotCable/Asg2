@@ -107,6 +107,10 @@ Link to **Extensive testing**: [Click here](https://docs.google.com/spreadsheets
 - HTML checker produced 1 error
 - CSS checker produced 4 errors
 
+### Problems:
+- RESTDB.io has a limit for the no. of requests per day. Therefore, data might not load if the limit has exceeded.
+- Background might not fit properly on some devices depending on screen sizes.
+
 ## Credits
 
 ### Contributions
