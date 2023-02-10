@@ -20,7 +20,7 @@ We went with a 2D (2-Dimensional) Pixelated game as we felt that it would be eas
 Link to **Wireframe**: [Click here](https://xd.adobe.com/view/fb8966fd-4990-4537-a5d4-e07558fe6d1a-aeda/)
 
 ### Pitch: 
-Link to **Pitch**:
+Link to **Pitch**: [Click here](https://drive.google.com/drive/folders/1QbsGB4L5N64DsywM0-aP97FUDTaAfbEt?usp=sharing)
 
 ## Features
  
