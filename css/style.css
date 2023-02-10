@@ -150,7 +150,6 @@ body{
 .header .profile-popup .profile-content{
   display: flex;
   align-items: center;
-  margin-left: 2;
   padding: 2rem 2rem;
 }
 
@@ -178,7 +177,6 @@ body{
 .header .login-popup .login{
   display: flex;
   align-items: center;
-  margin-left: 2;
   padding: 2rem 2rem;
 }
 

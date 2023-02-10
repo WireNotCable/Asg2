@@ -6,9 +6,9 @@ var step;
 var action; //used for setInterval
 var fruits = ['apple', 'lemon', 'mango', 'peach'];
 $(function(){
+    alert("Goal : slice as many fruits as you can by hovering/clicking on fruits. You only have 3 lives. Reward : 1 🪙 for every 10 points earned in a single round")
     
 //click on start reset button
-    
 $("#startreset").click(function(){
 
     //we are playing
@@ -22,7 +22,7 @@ $("#startreset").click(function(){
         playing = true; //game initiated
 
         //set score to 0
-        score = 0; //set score to 0
+        score = 0; 
         $("#scorevalue").html(score);
 
         //show trials left 
@@ -116,7 +116,7 @@ function startAction(){
                 $("#gameOver").html('<p>Game Over!</p><p>Your score is '+ score +'</p>');
                 $("#trialsLeft").hide();
                 stopAction();
-                if (score >= 20){
+                if (score >= 10){
                     // const APIKEY = "63d670813bc6b255ed0c43ff";   
                     const APIKEY = "63de1cc23bc6b255ed0c463a";
 
@@ -133,7 +133,7 @@ function startAction(){
                         },
                     }
                     $.ajax(settings).done(function (response){
-                        coins = Math.floor(score/20);
+                        coins = Math.floor(score/10);
                         newPoints = parseInt(JSON.stringify(response[0].points)) + coins
                         jsondata = {
                             username : response[0].username,

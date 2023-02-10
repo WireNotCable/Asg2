@@ -39,13 +39,11 @@ header{
 .heading p a:hover{
     color: green;
 }
-main{
+#maps{
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    /* /* width: 100vw;
-    height: 84vh; */
     width: 80vw;
     height: 80vh;
     margin: 3% 5% 0 5%; 
@@ -269,7 +267,7 @@ border: 0.1rem solid rgba(0, 0, 0, 0.1);
         flex: 1 1 40rem;
 }
 
-.contact .row form h3 , main h3{
+.contact .row form h3 , #maps h3{
 font-size: 2.5rem;
 padding-bottom: 1rem;
 color: #222;

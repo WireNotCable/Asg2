@@ -1,9 +1,10 @@
 toggleForm()
 function toggleForm(){
-  section = document.querySelector('.section');
+  // section = document.querySelector('.section');
   container = document.querySelector('.container');
   container.classList.toggle('active');
 }
+
 $(document).ready(function(){
     // const APIKEY = "63d670813bc6b255ed0c43ff"; 
     const APIKEY = "63de1cc23bc6b255ed0c463a";
@@ -50,7 +51,7 @@ $(document).ready(function(){
                 player.play()
                 player.addEventListener('complete', function() {
                   player.style.display = "none";
-                  alert("Registration successful.");
+                  // alert("Registration successful.");
                 });
                 });
             }
