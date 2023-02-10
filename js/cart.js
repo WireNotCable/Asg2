@@ -235,7 +235,7 @@ $(document).ready(function(){
           }
       
           $.ajax(settings).done(function (response) {
-            alert("Points added")
+            alert("Payment successful. Points added")
           });
         
       }) 

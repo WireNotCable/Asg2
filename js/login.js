@@ -50,7 +50,7 @@ $(document).ready(function(){
                 player.play()
                 player.addEventListener('complete', function() {
                   player.style.display = "none";
-                  alert("Registration successful.");
+                  // alert("Registration successful.");
                 });
                 });
             }

@@ -1,12 +1,6 @@
-/*-----------------------------------*\
-  #VARIABLE
-\*-----------------------------------*/
-
 :root {
 
-  /**
-   * Colors
-   */
+  /* Colors */
 
   --onyx:         hsl(0, 0%, 25%);
   --azure:        hsl(219, 77%, 60%);
@@ -19,9 +13,7 @@
   --spanish-gray: hsl(0, 0%, 62%);
   --quick-silver: hsl(0, 0%, 64%);
 
-  /**
-   * Typography
-   */
+  /* Typography */
 
   --fs-28: 28px;
   --fs-24: 24px;
@@ -33,22 +25,14 @@
   --fw-6: 600;
   --fw-7: 700;
 
-  /**
-   * Others 
-   */
+  /* Others */
 
   --px: 60px;
   --radius: 5px;
 
 }
 
-
-
-
-
-/*-----------------------------------*\
-  #RESET
-\*-----------------------------------*/
+/* Reset  */
 
 *, *::before, *::after {
   margin: 0;
@@ -82,9 +66,8 @@ input {
 
 input:focus { outline: 2px solid var(--azure); }
 
-/**
- * Remove number input up & down button
- */
+/* Remove number input up & down button */
+
 input::-webkit-inner-spin-button,
 input::-webkit-outer-spin-button {
   appearance:         none;
@@ -92,9 +75,8 @@ input::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/**
- * Custom scrollbar style
- */
+/* Custom scrollbar style */
+
 ::-webkit-scrollbar { width: 8px; }
 
 ::-webkit-scrollbar-track { background: transparent; }
@@ -107,16 +89,10 @@ input::-webkit-outer-spin-button {
 ::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 
+/* MAIN STYLE */
 
+/* main container  */
 
-
-/*-----------------------------------*\
-  #MAIN STYLE
-\*-----------------------------------*/
-
-/**
- * main container 
- */
 
 .container {
   max-width: 1440px;
@@ -144,9 +120,7 @@ input::-webkit-outer-spin-button {
   flex-grow: 1;
 }
 
-/**
- * checkout section style 
- */
+/* checkout section style */
 
 .checkout {
   width: 70%;
@@ -255,9 +229,7 @@ input::-webkit-outer-spin-button {
 .btn-primary b { margin-right: 10px; }
 
 
-/**
- * cart section style
- */
+/* cart section style */
 
 .cart {
   width: 40%;
@@ -374,21 +346,13 @@ input::-webkit-outer-spin-button {
   color: var(--onyx);
 }
 
-
-
-
-
-/*-----------------------------------*\
-  #RESPONSIVE
-\*-----------------------------------*/
+/* RESPONSIVE */
 
 @media (max-width: 1200px) {
 
   .item-flex { flex-direction: column-reverse; }
 
-  /**
-   * checkout section responsive 
-   */
+  /* checkout section responsive */
 
   .checkout {
     width: 100%;
@@ -397,9 +361,7 @@ input::-webkit-outer-spin-button {
 
   .btn-primary { width: 100%; }
 
-  /**
-   * cart section responsive
-   */
+  /* cart section responsive */
 
   .cart {
     display: grid;
